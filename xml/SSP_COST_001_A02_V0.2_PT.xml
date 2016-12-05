@@ -1,0 +1,1659 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Inquerito_Primeira_Visita_2016_V0.2</h:title>
+    <model>
+      <instance>
+        <SSP_COST_001_A02_V0.2_PT id="SSP_COST_001_A02_V0.2">
+          <AggInfo>
+            <family_id/>
+          </AggInfo>
+          <SocDemo_Info>
+            <birthdate/>
+            <gender/>
+            <date_visit/>
+            <consent/>
+            <consent_whynot/>
+          </SocDemo_Info>
+          <primeira_visita>
+            <SocEcon_Info>
+              <education/>
+              <read/>
+              <write/>
+              <Ocupation/>
+              <mstatus/>
+              <ifmarried/>
+              <water/>
+              <waterloc/>
+              <time_taken>
+                <time_tak/>
+              </time_taken>
+              <watertreat/>
+              <latrina/>
+              <latrina_comp/>
+              <wc_familyno/>
+              <electrodomestico/>
+              <combustivel/>
+              <alconfec/>
+              <chaocasa/>
+              <telhadocasa/>
+              <paredecasa/>
+              <quartos/>
+              <posses/>
+              <terracult/>
+              <hecta/>
+              <animaisfam/>
+              <animais>
+                <bull/>
+                <horse/>
+                <coats/>
+                <ove/>
+                <pigs/>
+                <chick/>
+              </animais>
+              <contabanc/>
+            </SocEcon_Info>
+            <control_malaria>
+              <pulverizada/>
+              <ifnotpulver/>
+              <pulvdata/>
+              <temredes/>
+              <redes>
+                <redes/>
+                <net_repeat jr:template="">
+                  <net_brand/>
+                  <net_especifique/>
+                  <net_furos/>
+                  <net_location/>
+                  <net_aquir/>
+                  <net_cost/>
+                  <net_host/>
+                  <net_sleepers/>
+                  <net_treatment/>
+                  <net_sndtreatment/>
+                  <net_ltreatment/>
+                  <net_wash/>
+                </net_repeat>
+              </redes>
+              <outs_sleep/>
+              <out_sleep/>
+              <osleepreason/>
+              <undernet_sleep/>
+              <undernet_sleeps/>
+              <medidas/>
+              <custotech/>
+            </control_malaria>
+            <child_repeat jr:template="">
+              <cuid_malaria>
+                <partno/>
+                <dmalaria/>
+                <malaria>
+                  <dsickness/>
+                  <diagnostic/>
+                  <assist/>
+                  <concost/>
+                  <vistnr/>
+                  <matcost/>
+                  <despcost/>
+                </malaria>
+                <ape_search/>
+                <ape>
+                  <conscost/>
+                  <testcost/>
+                  <treatcost/>
+                </ape>
+                <un/>
+                <hospital>
+                  <travcost/>
+                  <travtime/>
+                  <cocost/>
+                  <tecost/>
+                  <trcost/>
+                </hospital>
+                <hospi/>
+                <intern>
+                  <hospiD/>
+                  <call_cost/>
+                  <ali_cost/>
+                  <viacost/>
+                  <bill/>
+                  <bill_cost/>
+                </intern>
+                <preencher>
+                  <medcost/>
+                  <activi_stop/>
+                  <agric/>
+                  <ali_indu/>
+                  <comer/>
+                  <services/>
+                  <adminis/>
+                  <educ_work/>
+                  <us_work/>
+                  <domestic_work/>
+                  <study/>
+                  <rdpayment/>
+                  <payval/>
+                </preencher>
+              </cuid_malaria>
+              <clinic_data>
+                <temp/>
+                <child_fever/>
+                <child_med/>
+                <anti_mala/>
+                <especif/>
+                <child_vacin/>
+              </clinic_data>
+              <amostras>
+                <test_result/>
+                <treat_follow/>
+                <why_treatment/>
+                <espec/>
+              </amostras>
+            </child_repeat>
+          </primeira_visita>
+          <lab>
+            <field_worker_lab/>
+            <fw_name/>
+            <date_inq_lab/>
+          </lab>
+          <meta>
+            <instanceID/>
+            <instanceName/>
+          </meta>
+        </SSP_COST_001_A02_V0.2_PT>
+      </instance>
+      <bind constraint="(regex(., '^[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9]$'))" jr:constraintMsg="Formato XXX-XXXX-XXX" nodeset="/SSP_COST_001_A02_V0.2_PT/AggInfo/family_id" required="true()" type="string"/>
+      <bind constraint="(regex(.,'^[12]{1}[0-9]{3}-0[1-9]{1}-[0-2]{1}[0-9]{1}$')) or (regex(.,'^[12]{1}[0-9]{3}-0[1-9]{1}-3[0-1]{1}$')) or (regex(.,'^[12]{1}[0-9]{3}-1[0-2]{1}-3[0-1]{1}$')) or (regex(.,'^[12]{1}[0-9]{3}-1[0-2]{1}-[0-2]{1}[0-9]{1}$'))" jr:constraintMsg="Formato aaaa-mm-dd" nodeset="/SSP_COST_001_A02_V0.2_PT/SocDemo_Info/birthdate" required="true()" type="date"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/SocDemo_Info/gender" required="true()" type="select1"/>
+      <bind constraint=".&lt;=today()" jr:constraintMsg="A data não deve ser superior a data actual" nodeset="/SSP_COST_001_A02_V0.2_PT/SocDemo_Info/date_visit" required="true()" type="date"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/SocDemo_Info/consent" required="true()" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/SocDemo_Info/consent_whynot" relevant=" /SSP_COST_001_A02_V0.2_PT/SocDemo_Info/consent  = 1" type="string"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita" relevant=" /SSP_COST_001_A02_V0.2_PT/SocDemo_Info/consent  = 2"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/education" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/read" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/write" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/Ocupation" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/mstatus" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/ifmarried" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/mstatus  = 1" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/water" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/waterloc" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/time_taken" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/waterloc  = 3"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/time_taken/time_tak" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/watertreat" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/latrina" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/latrina_comp" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/wc_familyno" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/latrina_comp  = 1" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/electrodomestico" type="select"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/combustivel" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/alconfec" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/chaocasa" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/telhadocasa" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/paredecasa" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/quartos" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/posses" type="select"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/terracult" type="select1"/>
+      <bind jr:constraintMsg="Formato: dd-mm-aaaa" nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/hecta" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/terracult  = 1" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/animaisfam" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/animais" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/animaisfam  = 1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/animais/bull" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/animais/horse" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/animais/coats" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/animais/ove" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/animais/pigs" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/animais/chick" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/contabanc" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/pulverizada" required="true()" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/ifnotpulver" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/pulverizada  = 2" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/pulvdata" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/pulverizada  = 1" required="true()" type="string"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/temredes" required="true()" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/temredes  = 1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/redes" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_brand" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_especifique" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_brand  = 8" type="string"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_furos" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_location" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_aquir" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_cost" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_aquir  = 1" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_host" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_sleepers" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_treatment" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_sndtreatment" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_ltreatment" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_sndtreatment  = 1" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_wash" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/outs_sleep" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/out_sleep" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/osleepreason" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/undernet_sleep" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/undernet_sleeps" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/medidas" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/custotech" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/medidas  = 1 or  /SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/medidas  = 2 or  /SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/medidas  = 3" type="int"/>
+      <bind constraint="(regex(., '^[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$'))" jr:constraintMsg="Formato XXX-XXXX-XXX-XXXX" nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/partno" required="true()" type="string"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/dmalaria" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/malaria" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/dmalaria  = 1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/malaria/dsickness" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/malaria/diagnostic" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/malaria/assist" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/malaria/concost" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/malaria/assist  = 1" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/malaria/vistnr" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/malaria/assist  = 1" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/malaria/matcost" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/malaria/assist  = 1" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/malaria/despcost" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/malaria/assist  = 1" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/ape_search" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/ape" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/ape_search  =1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/ape/conscost" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/ape/testcost" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/ape/treatcost" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/un" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/hospital" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/un  = 1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/hospital/travcost" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/hospital/travtime" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/hospital/cocost" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/hospital/tecost" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/hospital/trcost" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/hospi" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/intern" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/hospi =1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/intern/hospiD" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/intern/call_cost" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/intern/ali_cost" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/intern/viacost" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/intern/bill" type="string"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/intern/bill_cost" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/medcost" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/activi_stop" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/agric" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/ali_indu" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/comer" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/services" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/adminis" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/educ_work" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/us_work" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/domestic_work" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/study" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/rdpayment" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/payval" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/rdpayment  =1" type="int"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/clinic_data/temp" type="string"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/clinic_data/child_fever" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/clinic_data/child_med" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/clinic_data/anti_mala" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/clinic_data/child_med  = 1" type="select"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/clinic_data/especif" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/clinic_data/anti_mala  = 7" type="string"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/clinic_data/child_vacin" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/amostras/test_result" required="true()" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/amostras/treat_follow" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/amostras/test_result  = 1" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/amostras/why_treatment" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/amostras/treat_follow  = 2" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/amostras/espec" relevant=" /SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/amostras/why_treatment  = 3" type="string"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/lab/field_worker_lab" required="true()" type="string"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/lab/fw_name" type="string"/>
+      <bind nodeset="/SSP_COST_001_A02_V0.2_PT/lab/date_inq_lab" required="true()" type="date"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/SSP_COST_001_A02_V0.2_PT/meta/instanceID" readonly="true()" type="string"/>
+      <bind calculate="concat(&quot;XMAL-&quot;, /SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/partno )" nodeset="/SSP_COST_001_A02_V0.2_PT/meta/instanceName" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/SSP_COST_001_A02_V0.2_PT/AggInfo">
+      <label>Informação do agregado</label>
+      <input ref="/SSP_COST_001_A02_V0.2_PT/AggInfo/family_id">
+        <label>1. Número do Agregado</label>
+        <hint>formato XXX-XXXX-XXX</hint>
+      </input>
+    </group>
+    <group ref="/SSP_COST_001_A02_V0.2_PT/SocDemo_Info">
+      <label>Informação socio-demografica do entrevistado</label>
+      <input ref="/SSP_COST_001_A02_V0.2_PT/SocDemo_Info/birthdate">
+        <label>2. Data de Nascimento</label>
+        <hint>formato aaaa-mm-dd</hint>
+      </input>
+      <select1 ref="/SSP_COST_001_A02_V0.2_PT/SocDemo_Info/gender">
+        <label>3. Sexo</label>
+        <item>
+          <label>Masculino</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>Femenino</label>
+          <value>2</value>
+        </item>
+      </select1>
+      <input ref="/SSP_COST_001_A02_V0.2_PT/SocDemo_Info/date_visit">
+        <label>4. Data da Visita</label>
+      </input>
+      <select1 ref="/SSP_COST_001_A02_V0.2_PT/SocDemo_Info/consent">
+        <label>5. Assinou o consentimento Informado?</label>
+        <item>
+          <label>Sim</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>Não</label>
+          <value>2</value>
+        </item>
+      </select1>
+      <input ref="/SSP_COST_001_A02_V0.2_PT/SocDemo_Info/consent_whynot">
+        <label>6. Se não, porquê</label>
+      </input>
+    </group>
+    <group ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita">
+      <label>Primeira Visita de detecção Activa de Casos</label>
+      <group ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info">
+        <label>Dados socio-económicos</label>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/education">
+          <label>7. Nivel Academico</label>
+          <item>
+            <label>Alfabetização</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>EP1</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>EP2</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>ESG1</label>
+            <value>4</value>
+          </item>
+          <item>
+            <label>ESG2</label>
+            <value>5</value>
+          </item>
+          <item>
+            <label>Pre-basico elementar</label>
+            <value>6</value>
+          </item>
+          <item>
+            <label>Tecnico basico</label>
+            <value>7</value>
+          </item>
+          <item>
+            <label>Tecnico Medio</label>
+            <value>8</value>
+          </item>
+          <item>
+            <label>Formado como professor da primaria</label>
+            <value>9</value>
+          </item>
+          <item>
+            <label>Superior</label>
+            <value>10</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/read">
+          <label>8. Sabe ler?</label>
+          <item>
+            <label>Sim</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Não responde</label>
+            <value>3</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/write">
+          <label>9. Sabe Escrever?</label>
+          <item>
+            <label>Sim</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Não responde</label>
+            <value>3</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/Ocupation">
+          <label>10. Ocupação do chefe da familia:</label>
+          <hint>'NA' se não é aplicavel</hint>
+          <item>
+            <label>Doméstico</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Agricultor</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Agricultor remunerado</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>Estudante</label>
+            <value>4</value>
+          </item>
+          <item>
+            <label>Comerciante</label>
+            <value>5</value>
+          </item>
+          <item>
+            <label>Provedor de serviços</label>
+            <value>6</value>
+          </item>
+          <item>
+            <label>Outro</label>
+            <value>7</value>
+          </item>
+          <item>
+            <label>NA</label>
+            <value>8</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/mstatus">
+          <label>11. Estado civil dos pais/cuidador</label>
+          <item>
+            <label>Casados ou em união de facto</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Solteiro(a)</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Separado(a)/Divorciado(a)</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>Viúvo(a)</label>
+            <value>4</value>
+          </item>
+          <item>
+            <label>Nunca casou ou viveu conjugalmente</label>
+            <value>5</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/ifmarried">
+          <label>12. Se for casado mora com o seu parceiro?</label>
+          <item>
+            <label>Sim</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Ocasionalmente</label>
+            <value>3</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/water">
+          <label>13. Qual é a principal fonte de água de consumo da familia?</label>
+          <item>
+            <label>Agua Canalizada</label>
+            <value>1.1</value>
+          </item>
+          <item>
+            <label>Canalizada dentro da vivenda</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Canalizada para o quintal</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Casa do vizinho</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>Torneira pública/fontenaria</label>
+            <value>5</value>
+          </item>
+          <item>
+            <label>Poço cavado</label>
+            <value>6.1</value>
+          </item>
+          <item>
+            <label>Poço protegido</label>
+            <value>6</value>
+          </item>
+          <item>
+            <label>Poço desprotegido</label>
+            <value>7</value>
+          </item>
+          <item>
+            <label>Furo com bomba manual</label>
+            <value>9</value>
+          </item>
+          <item>
+            <label>Agua de Chuva</label>
+            <value>10</value>
+          </item>
+          <item>
+            <label>Camião tanque</label>
+            <value>11</value>
+          </item>
+          <item>
+            <label>Água da superficie (Lago/lagoa/riacho/canal)</label>
+            <value>12</value>
+          </item>
+          <item>
+            <label>Água engarrafada</label>
+            <value>13</value>
+          </item>
+          <item>
+            <label>Outro</label>
+            <value>14</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/waterloc">
+          <label>14. Onde esta localizada a fonte de água?</label>
+          <item>
+            <label>Na própria vivenda</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>No próprio quintal</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Em outro lugar</label>
+            <value>3</value>
+          </item>
+        </select1>
+        <group appearance="field-list" ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/time_taken">
+          <label>15. Se esta for a do quintal, quanto tempo, de ida e volta, leva para ir buscar a agua?</label>
+          <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/time_taken/time_tak">
+            <label>Minutos</label>
+          </input>
+        </group>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/watertreat">
+          <label>16. Faz alguma coisa para tornar a água mais potável para o consumo?</label>
+          <item>
+            <label>Sim</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não</label>
+            <value>2</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/latrina">
+          <label>17. Qual é o tipo de latrina que a familia usa?</label>
+          <item>
+            <label>Sanita</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Sem sanita</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Latrina melhorada</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>Latrina tradicional melhorada</label>
+            <value>4</value>
+          </item>
+          <item>
+            <label>Sem latrina melhorada</label>
+            <value>5</value>
+          </item>
+          <item>
+            <label>Sem latrina / no mato</label>
+            <value>6</value>
+          </item>
+          <item>
+            <label>Outro</label>
+            <value>7</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/latrina_comp">
+          <label>18. Compartilham a latrina com outras familias?</label>
+          <item>
+            <label>Sim</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não</label>
+            <value>2</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/wc_familyno">
+          <label>19. Quantas familias usam essa latrina?</label>
+          <item>
+            <label>Menor 5</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>5 ou mais</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>10 ou mais</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>Não sabe</label>
+            <value>4</value>
+          </item>
+        </select1>
+        <select ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/electrodomestico">
+          <label>20. A sua familia tem os seguintes electrodomésticos:</label>
+          <hint>Marque todos que se aplicam</hint>
+          <item>
+            <label>Energia electrica</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Radio</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Televisão</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>Telemovel</label>
+            <value>4</value>
+          </item>
+          <item>
+            <label>Sem telemovel</label>
+            <value>5</value>
+          </item>
+          <item>
+            <label>Frigorifico</label>
+            <value>6</value>
+          </item>
+        </select>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/combustivel">
+          <label>21. Qual é o principal combustível que a sua familia usa para confecionar os alimentos?</label>
+          <item>
+            <label>Energia electrica</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Gás natural</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Gás de petróleo liquifeito</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>Carvão</label>
+            <value>4</value>
+          </item>
+          <item>
+            <label>Carvão vegetal</label>
+            <value>5</value>
+          </item>
+          <item>
+            <label>Lenha</label>
+            <value>6</value>
+          </item>
+          <item>
+            <label>Estrume de animais</label>
+            <value>7</value>
+          </item>
+          <item>
+            <label>Não cozinha em casa</label>
+            <value>8</value>
+          </item>
+          <item>
+            <label>Outro</label>
+            <value>9</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/alconfec">
+          <label>22. Onde é que a familia geralmente confeciona os alimentos?</label>
+          <item>
+            <label>Dentro da casa</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>No outro edificio</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Ar livre</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>Outro</label>
+            <value>4</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/chaocasa">
+          <label>23. Por favor, indique o material que compõe o chão da casa principal.</label>
+          <item>
+            <label>Terra batida</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não terra batida</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Madeira rudimentar</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>Adobe</label>
+            <value>4</value>
+          </item>
+          <item>
+            <label>Parquet ou madeira serrada</label>
+            <value>5</value>
+          </item>
+          <item>
+            <label>Azulejo</label>
+            <value>6</value>
+          </item>
+          <item>
+            <label>Cimento</label>
+            <value>7</value>
+          </item>
+          <item>
+            <label>Outro</label>
+            <value>8</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/telhadocasa">
+          <label>24. Por favor, indique o material que compõe o telhado da casa principal.</label>
+          <item>
+            <label>Sem telhado / descoberto</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Capim / colmo / palmeira</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Chapas de zinco</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>Folhas de fibrocimento</label>
+            <value>4</value>
+          </item>
+          <item>
+            <label>Azulejo</label>
+            <value>5</value>
+          </item>
+          <item>
+            <label>Lajes de concreto</label>
+            <value>6</value>
+          </item>
+          <item>
+            <label>Outro</label>
+            <value>7</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/paredecasa">
+          <label>25. Por favor, indique o material que compõe as paredes da casa principal.</label>
+          <item>
+            <label>Sem paredes</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Caniço / paus / bambu / palmeira</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Latão / papelão / papel / sacos</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>Paus maticados de areia</label>
+            <value>4</value>
+          </item>
+          <item>
+            <label>Casca de árvore</label>
+            <value>5</value>
+          </item>
+          <item>
+            <label>Madeira / zinco</label>
+            <value>6</value>
+          </item>
+          <item>
+            <label>Tijolos de argila</label>
+            <value>7</value>
+          </item>
+          <item>
+            <label>Azuleijo</label>
+            <value>8</value>
+          </item>
+          <item>
+            <label>Blocos de cimento</label>
+            <value>9</value>
+          </item>
+          <item>
+            <label>Outro</label>
+            <value>10</value>
+          </item>
+        </select1>
+        <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/quartos">
+          <label>26. Quantos quartos sao usados para dormir?</label>
+        </input>
+        <select ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/posses">
+          <label>27. Algum membro da familia possui o seguinte:</label>
+          <hint>Marque tudo que se aplica</hint>
+          <item>
+            <label>Relógio?</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Bicicleta?</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Motorizada ou motocicleta?</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>Carro de tracção  animal?</label>
+            <value>4</value>
+          </item>
+          <item>
+            <label>Veiculo ligeiro ou caminhão?</label>
+            <value>5</value>
+          </item>
+          <item>
+            <label>Barco a motor?</label>
+            <value>6</value>
+          </item>
+        </select>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/terracult">
+          <label>28. A familia possui alguma terra para cultivo?</label>
+          <item>
+            <label>Sim</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não</label>
+            <value>2</value>
+          </item>
+        </select1>
+        <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/hecta">
+          <label>29. Quantos hectares de terra arável a familia possui?</label>
+          <hint>Se for mais de 95, escreva 95. Se não conhece, escreva 99</hint>
+        </input>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/animaisfam">
+          <label>30. Esta familia possui gado, rebanhos, outros animais de campo ou aves de capoeira?</label>
+          <item>
+            <label>Sim</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não</label>
+            <value>2</value>
+          </item>
+        </select1>
+        <group ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/animais">
+          <label>31. Dos seguintes animais, quantos possuem essa vivenda?</label>
+          <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/animais/bull">
+            <label>Gado</label>
+          </input>
+          <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/animais/horse">
+            <label>Cavalos, burros ou mulas</label>
+          </input>
+          <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/animais/coats">
+            <label>Cabras</label>
+          </input>
+          <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/animais/ove">
+            <label>Ovelhas</label>
+          </input>
+          <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/animais/pigs">
+            <label>Porcos</label>
+          </input>
+          <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/animais/chick">
+            <label>Galinhas</label>
+          </input>
+        </group>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/SocEcon_Info/contabanc">
+          <label>32. Algum membro da familia tem conta bancaria?</label>
+          <item>
+            <label>Sim</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não</label>
+            <value>2</value>
+          </item>
+        </select1>
+      </group>
+      <group ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria">
+        <label>Controlo da malária</label>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/pulverizada">
+          <label>33. Esta casa foi pulverizada nos últimos 12 meses?</label>
+          <item>
+            <label>Sim</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não</label>
+            <value>2</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/ifnotpulver">
+          <label>34. Porquê?</label>
+          <item>
+            <label>A equipe não veio</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Ninguém estava em casa</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Recusou</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>Não sabe/outros</label>
+            <value>4</value>
+          </item>
+        </select1>
+        <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/pulvdata">
+          <label>35. Data da última pulverização</label>
+          <hint>Se nao sabe, preencha com 99-99-9999</hint>
+        </input>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/temredes">
+          <label>36. A casa tem redes mosquiteiras que usam quando dormen?</label>
+          <item>
+            <label>Sim</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não</label>
+            <value>2</value>
+          </item>
+        </select1>
+        <group ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes">
+          <label>:</label>
+          <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/redes">
+            <label>37. Quantas redes?</label>
+          </input>
+          <group ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat">
+            <label>:</label>
+            <repeat nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat">
+              <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_brand">
+                <label>38. Observe o tipo de marca da rede mosquiteira:</label>
+                <item>
+                  <label>Olyset</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>PermaNet</label>
+                  <value>2</value>
+                </item>
+                <item>
+                  <label>Netprotect</label>
+                  <value>3</value>
+                </item>
+                <item>
+                  <label>Duranet</label>
+                  <value>4</value>
+                </item>
+                <item>
+                  <label>Interceptor</label>
+                  <value>5</value>
+                </item>
+                <item>
+                  <label>DawaPlus</label>
+                  <value>6</value>
+                </item>
+                <item>
+                  <label>Não sabe</label>
+                  <value>7</value>
+                </item>
+                <item>
+                  <label>Outro</label>
+                  <value>8</value>
+                </item>
+              </select1>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_especifique">
+                <label>Especifique</label>
+              </input>
+              <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_furos">
+                <label>39. Obseve a rede por todos os lados. Tem furos maiores do que a ponta do seu polegar?</label>
+                <item>
+                  <label>Sim</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>Não</label>
+                  <value>2</value>
+                </item>
+              </select1>
+              <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_location">
+                <label>40. Onde está a rede?</label>
+                <item>
+                  <label>Pendurada, arrumado</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>Não pendurado, não arrumado</label>
+                  <value>2</value>
+                </item>
+                <item>
+                  <label>Não pendurado, mas acessivel</label>
+                  <value>3</value>
+                </item>
+                <item>
+                  <label>Não pendurado, e não acessivel</label>
+                  <value>4</value>
+                </item>
+                <item>
+                  <label>Outro</label>
+                  <value>5</value>
+                </item>
+              </select1>
+              <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_aquir">
+                <label>41. Como é que obteve a rede</label>
+                <item>
+                  <label>Comprou</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>Campanha de distribuição na provincia/distrito</label>
+                  <value>2</value>
+                </item>
+                <item>
+                  <label>Campanha de vacinação</label>
+                  <value>3</value>
+                </item>
+                <item>
+                  <label>Na clinica</label>
+                  <value>4</value>
+                </item>
+                <item>
+                  <label>Não sabe</label>
+                  <value>5</value>
+                </item>
+              </select1>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_cost">
+                <label>42. Se comprou, quanto custou?</label>
+              </input>
+              <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_host">
+                <label>43. Quantos dormiram nessa rede na noite passada?</label>
+                <item>
+                  <label>1</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>2</label>
+                  <value>2</value>
+                </item>
+                <item>
+                  <label>3</label>
+                  <value>3</value>
+                </item>
+                <item>
+                  <label>mais de 3</label>
+                  <value>4</value>
+                </item>
+                <item>
+                  <label>Não sabe</label>
+                  <value>5</value>
+                </item>
+              </select1>
+              <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_sleepers">
+                <label>44. Quem dormiu nessa rede na noite passada?</label>
+                <item>
+                  <label>Crianças</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>Adultos</label>
+                  <value>2</value>
+                </item>
+                <item>
+                  <label>Não sabe</label>
+                  <value>3</value>
+                </item>
+              </select1>
+              <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_treatment">
+                <label>45. Quando adquiriu a rede ela tinha sido tratada com insecticida?</label>
+                <item>
+                  <label>Sim</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>Não</label>
+                  <value>2</value>
+                </item>
+              </select1>
+              <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_sndtreatment">
+                <label>46. Voltou a tratar a rede novamente?</label>
+                <item>
+                  <label>Sim</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>Não</label>
+                  <value>2</value>
+                </item>
+              </select1>
+              <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_ltreatment">
+                <label>47. Se sim, quando foi a ultima vez?</label>
+                <item>
+                  <label>Menos de 6 meses</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>6 a 12 meses</label>
+                  <value>2</value>
+                </item>
+                <item>
+                  <label>Mais de 1 ano</label>
+                  <value>3</value>
+                </item>
+                <item>
+                  <label>Não Sabe</label>
+                  <value>4</value>
+                </item>
+              </select1>
+              <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/redes/net_repeat/net_wash">
+                <label>48. Já lavou a rede desde que a obteve?</label>
+                <item>
+                  <label>Sim</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>Não</label>
+                  <value>2</value>
+                </item>
+              </select1>
+            </repeat>
+          </group>
+        </group>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/outs_sleep">
+          <label>49. Em geral, com que frequência a criança dorme ao ar livre durante a estação chuvosa?</label>
+          <item>
+            <label>Menos de uma vez por semana</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Uma vez por semana</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>2 ou 3 vezes por semana</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>4 ou mais vezes por semana</label>
+            <value>4</value>
+          </item>
+          <item>
+            <label>Não sabe</label>
+            <value>5</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/out_sleep">
+          <label>50. Em geral, com que frequência a criança dorme ao ar livre durante a estação seca?</label>
+          <item>
+            <label>Menos de uma vez por semana</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Uma vez por semana</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>2 ou 3 vezes por semana</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>4 ou mais vezes por semana</label>
+            <value>4</value>
+          </item>
+          <item>
+            <label>Não sabe</label>
+            <value>5</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/osleepreason">
+          <label>51. Se dorme no ar livre, qual é o motivo?</label>
+          <item>
+            <label>Calor</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Outra razão</label>
+            <value>2</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/undernet_sleep">
+          <label>52. Com que frequência a criança dorme debaixo da rede durante a estação chuvosa?</label>
+          <item>
+            <label>Menos de uma vez por semana</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Uma vez por semana</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>2 ou 3 vezes por semana</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>4 ou mais vezes por semana</label>
+            <value>4</value>
+          </item>
+          <item>
+            <label>Não sabe</label>
+            <value>5</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/undernet_sleeps">
+          <label>53. Com que frequência a criança dorme debaixo da rede durante a estação seca?</label>
+          <item>
+            <label>Menos de uma vez por semana</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Uma vez por semana</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>2 ou 3 vezes por semana</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>4 ou mais vezes por semana</label>
+            <value>4</value>
+          </item>
+          <item>
+            <label>Não sabe</label>
+            <value>5</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/medidas">
+          <label>54. Usou algumas das seguintes medidas durante a última semana?</label>
+          <item>
+            <label>Espirais</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Repelentes</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Insectticidas(baygon)</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>Nenhum</label>
+            <value>4</value>
+          </item>
+        </select1>
+        <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/control_malaria/custotech">
+          <label>55. Se sim, quanto pagou?</label>
+          <hint>&quot;000 &quot;se foi gratis</hint>
+        </input>
+      </group>
+      <group ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat">
+        <label>:</label>
+        <repeat nodeset="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat">
+          <group ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria">
+            <label>Cuidado da malária e despesas relacionadas</label>
+            <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/partno">
+              <label>56. Número de participante de estudo</label>
+              <hint>formato XXX-XXXX-XXX-XXXX</hint>
+            </input>
+            <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/dmalaria">
+              <label>57. A crianca teve malária nos últimos 30 dias?</label>
+              <item>
+                <label>Sim</label>
+                <value>1</value>
+              </item>
+              <item>
+                <label>Não</label>
+                <value>2</value>
+              </item>
+            </select1>
+            <group ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/malaria">
+              <label>:</label>
+              <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/malaria/dsickness">
+                <label>58. a) Quem ajudou a diagnosticar a doença da criança?</label>
+                <item>
+                  <label>Curandeiro</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>Um parente experiente</label>
+                  <value>2</value>
+                </item>
+                <item>
+                  <label>Pessoal de saúde</label>
+                  <value>3</value>
+                </item>
+                <item>
+                  <label>Outro</label>
+                  <value>4</value>
+                </item>
+              </select1>
+              <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/malaria/diagnostic">
+                <label>58. b) Como é que foi diagnosticado?</label>
+                <item>
+                  <label>Exame médico</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>Febre</label>
+                  <value>2</value>
+                </item>
+                <item>
+                  <label>Outros sintomas</label>
+                  <value>3</value>
+                </item>
+              </select1>
+              <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/malaria/assist">
+                <label>59. Procuram atendimento num curandeiro?</label>
+                <item>
+                  <label>Sim</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>Não</label>
+                  <value>2</value>
+                </item>
+              </select1>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/malaria/concost">
+                <label>60. Quanto é que custou a consulta?</label>
+              </input>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/malaria/vistnr">
+                <label>61. Quantas vezes a sua familia visitou o curandeiro?</label>
+              </input>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/malaria/matcost">
+                <label>62. Quanto custaram os materiais?</label>
+              </input>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/malaria/despcost">
+                <label>63. Quanto custaram as despesas da viagem?(ida)</label>
+              </input>
+            </group>
+            <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/ape_search">
+              <label>64. Procuraram atendimento no APE?</label>
+              <item>
+                <label>Sim</label>
+                <value>1</value>
+              </item>
+              <item>
+                <label>Não</label>
+                <value>2</value>
+              </item>
+            </select1>
+            <group ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/ape">
+              <label>:</label>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/ape/conscost">
+                <label>65. Quanto custou a consulta?</label>
+              </input>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/ape/testcost">
+                <label>66. Quanto custou o teste?</label>
+              </input>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/ape/treatcost">
+                <label>67. Quanto custou o tratamento?</label>
+              </input>
+            </group>
+            <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/un">
+              <label>68. Procuraram atendimento numa unidade sanitária?</label>
+              <item>
+                <label>Sim</label>
+                <value>1</value>
+              </item>
+              <item>
+                <label>Não</label>
+                <value>2</value>
+              </item>
+            </select1>
+            <group ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/hospital">
+              <label>:</label>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/hospital/travcost">
+                <label>69. Quanto custaram as despesas da viagem? (ida)</label>
+              </input>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/hospital/travtime">
+                <label>70. Quanto tempo demorou para chegar a Unidade Sanitaria? (minutos)</label>
+              </input>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/hospital/cocost">
+                <label>71. Quanto custou a consulta?</label>
+              </input>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/hospital/tecost">
+                <label>72. Quanto custou o teste?</label>
+              </input>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/hospital/trcost">
+                <label>73. Quanto custou o tratamento?</label>
+              </input>
+            </group>
+            <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/hospi">
+              <label>74. A criança chegou de ser hospitalizada?</label>
+              <item>
+                <label>Sim</label>
+                <value>1</value>
+              </item>
+              <item>
+                <label>Não</label>
+                <value>2</value>
+              </item>
+            </select1>
+            <group ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/intern">
+              <label>:</label>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/intern/hospiD">
+                <label>75. Se sim, quantos dias?</label>
+              </input>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/intern/call_cost">
+                <label>76. Quanto é que gastaram em chamadas durante a hospitalização?</label>
+              </input>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/intern/ali_cost">
+                <label>77. Quanto é que gastaram em alimentação durante a hospitalização?</label>
+              </input>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/intern/viacost">
+                <label>78. Quanto custaram as despesas da viagem? (ida)</label>
+              </input>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/intern/bill">
+                <label>79. Alguma Outra despesa?</label>
+              </input>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/intern/bill_cost">
+                <label>80. Qual foi o custo da tal despesa?</label>
+              </input>
+            </group>
+            <group ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher">
+              <label>Independentemente de terem visitado um curandeiro, um APE ou uma Unidade sanitaria, pergunte:</label>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/medcost">
+                <label>81. Quanto é que foi pago pelos medicamentos depois do participante ter voltado para casa?</label>
+              </input>
+              <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/activi_stop">
+                <label>82. Alguém teve que cancelar algumas das seguintes actividades por causa da doença da criança?</label>
+                <item>
+                  <label>Sim</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>Não</label>
+                  <value>2</value>
+                </item>
+              </select1>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/agric">
+                <label>83. Agricultura, pesca, mineração</label>
+              </input>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/ali_indu">
+                <label>84. Indústria alimentar ou outras indústrias mining</label>
+              </input>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/comer">
+                <label>85. Comercio / Mercado</label>
+              </input>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/services">
+                <label>86. Serviços (restaurantes, hoteis, etc.)</label>
+              </input>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/adminis">
+                <label>87. Administração pública e defesa</label>
+              </input>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/educ_work">
+                <label>88. Trabalho na educação</label>
+              </input>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/us_work">
+                <label>89. Trabalho em serviços sanitários e sociais</label>
+              </input>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/domestic_work">
+                <label>90. Trabalho doméstico/cuidado de crianças</label>
+              </input>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/study">
+                <label>91. Estudos</label>
+              </input>
+              <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/rdpayment">
+                <label>92. Teve que pagar alguém, fazer tais actividade, enquanto você cuidava do seu filho?</label>
+                <item>
+                  <label>Sim</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>Não</label>
+                  <value>2</value>
+                </item>
+              </select1>
+              <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/cuid_malaria/preencher/payval">
+                <label>93. Quanto é que pagou?</label>
+              </input>
+            </group>
+          </group>
+          <group ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/clinic_data">
+            <label>Dados Clínicos</label>
+            <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/clinic_data/temp">
+              <label>94. Temperatura axilar</label>
+            </input>
+            <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/clinic_data/child_fever">
+              <label>95. A criança teve febre nas últimas 48 horas?</label>
+              <item>
+                <label>Sim</label>
+                <value>1</value>
+              </item>
+              <item>
+                <label>Não</label>
+                <value>2</value>
+              </item>
+            </select1>
+            <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/clinic_data/child_med">
+              <label>96. A criança recebeu antimaláricos nos ultimos 30 dias?</label>
+              <item>
+                <label>Sim</label>
+                <value>1</value>
+              </item>
+              <item>
+                <label>Não</label>
+                <value>2</value>
+              </item>
+            </select1>
+            <select ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/clinic_data/anti_mala">
+              <label>97. Se sim, qual?</label>
+              <hint>Se for criança verifique no cartão amarelo!</hint>
+              <item>
+                <label>CoArtem</label>
+                <value>1</value>
+              </item>
+              <item>
+                <label>Artesunato</label>
+                <value>2</value>
+              </item>
+              <item>
+                <label>Fansidar</label>
+                <value>3</value>
+              </item>
+              <item>
+                <label>Amodiaquina</label>
+                <value>4</value>
+              </item>
+              <item>
+                <label>Quinina</label>
+                <value>5</value>
+              </item>
+              <item>
+                <label>Não sabe</label>
+                <value>6</value>
+              </item>
+              <item>
+                <label>Outro</label>
+                <value>7</value>
+              </item>
+            </select>
+            <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/clinic_data/especif">
+              <label>Especifique</label>
+            </input>
+            <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/clinic_data/child_vacin">
+              <label>98. Essa criança recebeu todas as vacinas do Epl para sua idade?</label>
+              <item>
+                <label>Sim</label>
+                <value>1</value>
+              </item>
+              <item>
+                <label>Não</label>
+                <value>2</value>
+              </item>
+            </select1>
+          </group>
+          <group ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/amostras">
+            <label>Recolha de amostras</label>
+            <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/amostras/test_result">
+              <label>99. Resultados dos testes rápidos de malária</label>
+              <hint>Por favor, preencha o formulario de resultado do participante!</hint>
+              <item>
+                <label>Positivo</label>
+                <value>1</value>
+              </item>
+              <item>
+                <label>Negativo</label>
+                <value>2</value>
+              </item>
+              <item>
+                <label>Inválido</label>
+                <value>3</value>
+              </item>
+              <item>
+                <label>Não feito</label>
+                <value>4</value>
+              </item>
+            </select1>
+            <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/amostras/treat_follow">
+              <label>100. Se o teste rápido de malária foi positivo, cumpriu de forma adequada com o tratamento?</label>
+              <item>
+                <label>Sim</label>
+                <value>1</value>
+              </item>
+              <item>
+                <label>Não</label>
+                <value>2</value>
+              </item>
+            </select1>
+            <select1 ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/amostras/why_treatment">
+              <label>101. Se não, porquê?</label>
+              <item>
+                <label>Recusou</label>
+                <value>1</value>
+              </item>
+              <item>
+                <label>O participante recebeu um tratamento completo de antimaláricos nos últimos 15 dias e desde então tem tido febre</label>
+                <value>2</value>
+              </item>
+              <item>
+                <label>Outro</label>
+                <value>3</value>
+              </item>
+            </select1>
+            <input ref="/SSP_COST_001_A02_V0.2_PT/primeira_visita/child_repeat/amostras/espec">
+              <label>Especifique</label>
+            </input>
+          </group>
+        </repeat>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/SSP_COST_001_A02_V0.2_PT/lab">
+      <label>Assinatura inquiridor</label>
+      <input ref="/SSP_COST_001_A02_V0.2_PT/lab/field_worker_lab">
+        <label>Codigo do inquriridor</label>
+      </input>
+      <input ref="/SSP_COST_001_A02_V0.2_PT/lab/fw_name">
+        <label>Nome do Inquiridor</label>
+      </input>
+      <input ref="/SSP_COST_001_A02_V0.2_PT/lab/date_inq_lab">
+        <label>Data:</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>

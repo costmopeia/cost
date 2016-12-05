@@ -1,0 +1,769 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>Visitas de seguimento de detecção activa de casos_2016 V0.3_PT</h:title>
+    <model>
+      <instance>
+        <SSP_COST_001_A03_V0.3_PT id="SSP_COST_001_A03_V0.3_PT">
+          <agg_info>
+            <family_id/>
+          </agg_info>
+          <socio_demo>
+            <birth_date/>
+            <gender/>
+            <visit_date/>
+            <consent/>
+            <consent_why/>
+          </socio_demo>
+          <seguimentos>
+            <malaria_control>
+              <rebouco/>
+              <net_sleepun/>
+              <net_furos/>
+              <net_loc/>
+              <net_wash/>
+              <washno/>
+              <medidas/>
+              <medida_cost/>
+            </malaria_control>
+            <child_repeat jr:template="">
+              <child>
+                <perm_id/>
+                <child_malaria/>
+                <malaria_cost>
+                  <diagnostic_person/>
+                  <diagnostic_type/>
+                </malaria_cost>
+                <traditional_med/>
+                <trad_assist>
+                  <con_cost/>
+                  <trad_visitno/>
+                  <material_cost/>
+                  <travel_cost/>
+                </trad_assist>
+                <responsbl_assist/>
+                <respo_assist>
+                  <cons_cost/>
+                  <test_cost/>
+                  <treat_cost/>
+                </respo_assist>
+                <hosp_assist/>
+                <hospital_assist>
+                  <hospital/>
+                  <hosp_bills/>
+                  <hosp_time/>
+                  <cn_cost/>
+                  <tes_cost/>
+                  <tret_cost/>
+                </hospital_assist>
+                <hospitality/>
+                <intern>
+                  <days_no/>
+                  <call_cost/>
+                  <feeding_cost/>
+                  <despesa/>
+                  <espec_despesa/>
+                  <desp_cost/>
+                </intern>
+                <preencher>
+                  <cost_after_intern/>
+                  <activities_cancel/>
+                  <activities>
+                    <agricul/>
+                    <indus/>
+                    <comer/>
+                    <serv/>
+                    <adminis/>
+                    <education_work/>
+                    <hosp_work/>
+                    <domestic_work/>
+                    <study/>
+                    <rdperson_payment/>
+                    <payment_value/>
+                  </activities>
+                </preencher>
+                <clinic_data>
+                  <ax_temp/>
+                  <fever_detec/>
+                  <anti_malarians/>
+                  <drugs_type/>
+                  <drugs_specifiy/>
+                  <vacins/>
+                </clinic_data>
+                <amostras>
+                  <test_result/>
+                  <positive_test/>
+                  <why_not/>
+                  <speci/>
+                </amostras>
+              </child>
+            </child_repeat>
+          </seguimentos>
+          <lab>
+            <field_worker_lab/>
+            <fw_name/>
+            <date_inq_lab/>
+          </lab>
+          <meta>
+            <instanceID/>
+            <instanceName/>
+          </meta>
+        </SSP_COST_001_A03_V0.3_PT>
+      </instance>
+      <bind constraint="(regex(., '^[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9]$'))" jr:constraintMsg="Formato XXX-XXXX-XXX" nodeset="/SSP_COST_001_A03_V0.3_PT/agg_info/family_id" required="true()" type="string"/>
+      <bind constraint="(regex(.,'^[12]{1}[0-9]{3}-0[1-9]{1}-[0-2]{1}[0-9]{1}$')) or (regex(.,'^[12]{1}[0-9]{3}-0[1-9]{1}-3[0-1]{1}$')) or (regex(.,'^[12]{1}[0-9]{3}-1[0-2]{1}-3[0-1]{1}$')) or (regex(.,'^[12]{1}[0-9]{3}-1[0-2]{1}-[0-2]{1}[0-9]{1}$'))" nodeset="/SSP_COST_001_A03_V0.3_PT/socio_demo/birth_date" required="true()" type="date"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/socio_demo/gender" required="true()" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/socio_demo/visit_date" required="true()" type="date"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/socio_demo/consent" required="true()" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/socio_demo/consent_why" relevant=" /SSP_COST_001_A03_V0.3_PT/socio_demo/consent  = 1" required="true()" type="string"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos" relevant=" /SSP_COST_001_A03_V0.3_PT/socio_demo/consent  = 2"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/malaria_control/rebouco" required="true()" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/malaria_control/net_sleepun" required="true()" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/malaria_control/net_furos" relevant=" /SSP_COST_001_A03_V0.3_PT/seguimentos/malaria_control/net_sleepun  = 1" required="true()" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/malaria_control/net_loc" required="true()" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/malaria_control/net_wash" required="true()" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/malaria_control/washno" relevant=" /SSP_COST_001_A03_V0.3_PT/seguimentos/malaria_control/net_wash  = 1" required="true()" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/malaria_control/medidas" required="true()" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/malaria_control/medida_cost" relevant=" /SSP_COST_001_A03_V0.3_PT/seguimentos/malaria_control/medidas  = 1 or  /SSP_COST_001_A03_V0.3_PT/seguimentos/malaria_control/medidas  = 2 or  /SSP_COST_001_A03_V0.3_PT/seguimentos/malaria_control/medidas  = 3" required="true()" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/perm_id" type="string"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/child_malaria" required="true()" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/malaria_cost" relevant=" /SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/child_malaria  = 1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/malaria_cost/diagnostic_person" required="true()" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/malaria_cost/diagnostic_type" required="true()" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/traditional_med" required="true()" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/trad_assist" relevant=" /SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/traditional_med  = 1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/trad_assist/con_cost" required="true()" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/trad_assist/trad_visitno" required="true()" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/trad_assist/material_cost" required="true()" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/trad_assist/travel_cost" required="true()" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/responsbl_assist" required="true()" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/respo_assist" relevant=" /SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/responsbl_assist  = 1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/respo_assist/cons_cost" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/respo_assist/test_cost" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/respo_assist/treat_cost" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/hosp_assist" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/hospital_assist/hospital" relevant=" /SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/hosp_assist  = 1" type="string"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/hospital_assist/hosp_bills" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/hospital_assist/hosp_time" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/hospital_assist/cn_cost" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/hospital_assist/tes_cost" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/hospital_assist/tret_cost" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/hospitality" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/intern" relevant=" /SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/hospitality  = 1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/intern/days_no" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/intern/call_cost" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/intern/feeding_cost" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/intern/despesa" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/intern/espec_despesa" relevant=" /SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/intern/despesa  = 1" type="string"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/intern/desp_cost" relevant=" /SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/intern/despesa  = 1" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/cost_after_intern" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities_cancel" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities" relevant=" /SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities_cancel  = 1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities/agricul" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities/indus" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities/comer" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities/serv" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities/adminis" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities/education_work" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities/hosp_work" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities/domestic_work" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities/study" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities/rdperson_payment" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities/payment_value" type="int"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/clinic_data/ax_temp" type="string"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/clinic_data/fever_detec" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/clinic_data/anti_malarians" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/clinic_data/drugs_type" relevant=" /SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/clinic_data/anti_malarians  = 1" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/clinic_data/drugs_specifiy" relevant=" /SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/clinic_data/drugs_type  = 7" type="string"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/clinic_data/vacins" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/amostras/test_result" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/amostras/positive_test" relevant=" /SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/amostras/test_result  = 1" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/amostras/why_not" relevant=" /SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/amostras/positive_test  = 2" type="select1"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/amostras/speci" relevant=" /SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/amostras/why_not  = 3" type="string"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/lab/field_worker_lab" required="true()" type="string"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/lab/fw_name" type="string"/>
+      <bind nodeset="/SSP_COST_001_A03_V0.3_PT/lab/date_inq_lab" required="true()" type="date"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/SSP_COST_001_A03_V0.3_PT/meta/instanceID" readonly="true()" type="string"/>
+      <bind calculate="concat(&quot;XMAL-&quot;, /SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/perm_id )" nodeset="/SSP_COST_001_A03_V0.3_PT/meta/instanceName" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="/SSP_COST_001_A03_V0.3_PT/agg_info">
+      <label>Informação do Agregado</label>
+      <input ref="/SSP_COST_001_A03_V0.3_PT/agg_info/family_id">
+        <label>1. Número do agregado</label>
+        <hint>formato XXX-XXXX-XXX</hint>
+      </input>
+    </group>
+    <group ref="/SSP_COST_001_A03_V0.3_PT/socio_demo">
+      <label>Informação socio-demográfica</label>
+      <input ref="/SSP_COST_001_A03_V0.3_PT/socio_demo/birth_date">
+        <label>2. Data de nascimento</label>
+      </input>
+      <select1 ref="/SSP_COST_001_A03_V0.3_PT/socio_demo/gender">
+        <label>3. Sexo</label>
+        <item>
+          <label>Masculino</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>Femenino</label>
+          <value>2</value>
+        </item>
+      </select1>
+      <input ref="/SSP_COST_001_A03_V0.3_PT/socio_demo/visit_date">
+        <label>4. Data da visita</label>
+      </input>
+      <select1 ref="/SSP_COST_001_A03_V0.3_PT/socio_demo/consent">
+        <label>5. Retirou o consentimento de participação?</label>
+        <hint>Se sim, Parar de Preencher o inquerito!</hint>
+        <item>
+          <label>Sim</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>Não</label>
+          <value>2</value>
+        </item>
+      </select1>
+      <input ref="/SSP_COST_001_A03_V0.3_PT/socio_demo/consent_why">
+        <label>6. Se sim, porquê? Especifique</label>
+      </input>
+    </group>
+    <group ref="/SSP_COST_001_A03_V0.3_PT/seguimentos">
+      <label>Visitas de seguimento de detecção activa de casos</label>
+      <group ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/malaria_control">
+        <label>Controlo de malária</label>
+        <select1 ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/malaria_control/rebouco">
+          <label>7. Reboucou ou pintou a sua casa no ultimo mês?</label>
+          <item>
+            <label>Sim</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Não sei</label>
+            <value>3</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/malaria_control/net_sleepun">
+          <label>8. O participante dormiu debaixo da rede mosquiteira?</label>
+          <hint>Por favor, peça ao pai ou mãe/cuidador para lhe mostrar a rede</hint>
+          <item>
+            <label>Sim</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Não sei</label>
+            <value>3</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/malaria_control/net_furos">
+          <label>9. Observe a rede por todos os lados. Tem furos maiores do que a ponta do seu polegar?</label>
+          <item>
+            <label>Sim</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não</label>
+            <value>2</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/malaria_control/net_loc">
+          <label>10. Onde está a rede?</label>
+          <item>
+            <label>Pendurada, arrumada</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não pendurado, não arrumado</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Não pendurado, mas acessivel</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>Não pendurado, e não acessivel</label>
+            <value>4</value>
+          </item>
+          <item>
+            <label>Outro</label>
+            <value>5</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/malaria_control/net_wash">
+          <label>11. Lavou a rede desde a minha ultima visita?</label>
+          <item>
+            <label>Sim</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não</label>
+            <value>2</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/malaria_control/washno">
+          <label>12. Se sim, quantas vezes?</label>
+          <item>
+            <label>1</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>2</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>3</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>Mais de 3</label>
+            <value>4</value>
+          </item>
+          <item>
+            <label>Não sei</label>
+            <value>5</value>
+          </item>
+        </select1>
+        <select1 ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/malaria_control/medidas">
+          <label>13. Usou algumas das seguintes medidas durante a última semana?</label>
+          <item>
+            <label>Espirais</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Repelentes</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Insecticidas(Baygon)</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>Nenhum</label>
+            <value>4</value>
+          </item>
+        </select1>
+        <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/malaria_control/medida_cost">
+          <label>14. Se sim, quanto pagou?</label>
+          <hint>Preenche com &quot;000&quot; se foi gratis</hint>
+        </input>
+      </group>
+      <group ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat">
+        <label>:</label>
+        <repeat nodeset="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat">
+          <group ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child">
+            <label>:</label>
+            <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/perm_id">
+              <label>15. Numero do participante</label>
+            </input>
+            <select1 ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/child_malaria">
+              <label>16. A criança teve malária nos últimos 30 dias?</label>
+              <item>
+                <label>Sim</label>
+                <value>1</value>
+              </item>
+              <item>
+                <label>Não</label>
+                <value>2</value>
+              </item>
+              <item>
+                <label>Não sei</label>
+                <value>3</value>
+              </item>
+            </select1>
+            <group ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/malaria_cost">
+              <label>Cuidado contra malária e despesas relacionadas</label>
+              <select1 ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/malaria_cost/diagnostic_person">
+                <label>17. a. Quêm ajudou a diagnosticar a doença?</label>
+                <item>
+                  <label>Curandeiro</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>Um parente experiente</label>
+                  <value>2</value>
+                </item>
+                <item>
+                  <label>Pessoal de saúde</label>
+                  <value>3</value>
+                </item>
+                <item>
+                  <label>Outro</label>
+                  <value>4</value>
+                </item>
+              </select1>
+              <select1 ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/malaria_cost/diagnostic_type">
+                <label>b. Como é que foi diagnosticado?</label>
+                <item>
+                  <label>Exame médico</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>Febre</label>
+                  <value>2</value>
+                </item>
+                <item>
+                  <label>Outros sintomas</label>
+                  <value>3</value>
+                </item>
+              </select1>
+            </group>
+            <select1 ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/traditional_med">
+              <label>18. Procuraram atendimento num curandeiro?</label>
+              <item>
+                <label>Sim</label>
+                <value>1</value>
+              </item>
+              <item>
+                <label>Não</label>
+                <value>2</value>
+              </item>
+              <item>
+                <label>Não sei</label>
+                <value>3</value>
+              </item>
+            </select1>
+            <group ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/trad_assist">
+              <label>:</label>
+              <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/trad_assist/con_cost">
+                <label>19. Quanto éque custou a consulta?</label>
+              </input>
+              <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/trad_assist/trad_visitno">
+                <label>20. Quantas vezes a sua familia visitou o curandeiro?</label>
+              </input>
+              <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/trad_assist/material_cost">
+                <label>21. Quanto custaram os materiais?</label>
+              </input>
+              <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/trad_assist/travel_cost">
+                <label>22. Quanto custaram as despesas da viagem (ida)?</label>
+              </input>
+            </group>
+            <select1 ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/responsbl_assist">
+              <label>22. Procuraram atendimento no responsável sanitário da comunidade?</label>
+              <item>
+                <label>Sim</label>
+                <value>1</value>
+              </item>
+              <item>
+                <label>Não</label>
+                <value>2</value>
+              </item>
+              <item>
+                <label>Não sei</label>
+                <value>3</value>
+              </item>
+            </select1>
+            <group ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/respo_assist">
+              <label>:</label>
+              <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/respo_assist/cons_cost">
+                <label>23. Quanto custou a consulta?</label>
+              </input>
+              <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/respo_assist/test_cost">
+                <label>24. Quanto custou o teste?</label>
+              </input>
+              <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/respo_assist/treat_cost">
+                <label>25. Quanto custou o tratamento?</label>
+              </input>
+            </group>
+            <select1 ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/hosp_assist">
+              <label>26. Procuraram atendimento na unidade sanitária?</label>
+              <item>
+                <label>Sim</label>
+                <value>1</value>
+              </item>
+              <item>
+                <label>Não</label>
+                <value>2</value>
+              </item>
+              <item>
+                <label>Não sei</label>
+                <value>3</value>
+              </item>
+            </select1>
+            <group ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/hospital_assist">
+              <label>:</label>
+              <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/hospital_assist/hospital">
+                <label>27. Se sim, qual foi a unidade sanitaria?</label>
+              </input>
+              <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/hospital_assist/hosp_bills">
+                <label>28. Quanto custaram as despesas da viagem (ida)?</label>
+              </input>
+              <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/hospital_assist/hosp_time">
+                <label>29. Quanto tempo demorou para chegar à unidade sanitária?</label>
+                <hint>minutos</hint>
+              </input>
+              <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/hospital_assist/cn_cost">
+                <label>30. Quanto custou a consulta?</label>
+              </input>
+              <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/hospital_assist/tes_cost">
+                <label>31. Quanto custou o teste?</label>
+              </input>
+              <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/hospital_assist/tret_cost">
+                <label>32. Quanto custou o tratamento</label>
+              </input>
+            </group>
+            <select1 ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/hospitality">
+              <label>33. A criança chegou de ser hospitalizada?</label>
+              <item>
+                <label>Sim</label>
+                <value>1</value>
+              </item>
+              <item>
+                <label>Não</label>
+                <value>2</value>
+              </item>
+            </select1>
+            <group ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/intern">
+              <label>:</label>
+              <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/intern/days_no">
+                <label>34. Se sim, quantos dias?</label>
+              </input>
+              <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/intern/call_cost">
+                <label>35. Quanto é que gastaram com chamadas durante a hospitalização?</label>
+              </input>
+              <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/intern/feeding_cost">
+                <label>36. Quanto gastaram em alimentação durante a hospitalização?</label>
+              </input>
+              <select1 ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/intern/despesa">
+                <label>37. Alguma outra despesa?</label>
+                <item>
+                  <label>Sim</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>Não</label>
+                  <value>2</value>
+                </item>
+              </select1>
+              <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/intern/espec_despesa">
+                <label>Especifique</label>
+              </input>
+              <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/intern/desp_cost">
+                <label>38. Quanto é que gastaram com a tal despesa?</label>
+              </input>
+            </group>
+            <group ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher">
+              <label>Independentemente de terem visitado um curandeiro, um APE ou uma Unidade sanitaria, pergunte:</label>
+              <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/cost_after_intern">
+                <label>39. Quanto foi pago pelos medicamentos depois do participante ter voltado para casa?</label>
+                <hint>Independentemente de terem visitado um curandeiro, um APE ou uma unidade sanitaria, pergunte</hint>
+              </input>
+              <select1 ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities_cancel">
+                <label>40. Alguem teve que cancelar algumas das seguintes actividades por causa da doença da criança?</label>
+                <item>
+                  <label>Sim</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>Não</label>
+                  <value>2</value>
+                </item>
+              </select1>
+              <group ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities">
+                <label>:</label>
+                <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities/agricul">
+                  <label>41. Agricultura, pesca, mineração</label>
+                </input>
+                <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities/indus">
+                  <label>42. Indústria alimentar ou outras indústrias</label>
+                </input>
+                <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities/comer">
+                  <label>43. Comércio / Mercado</label>
+                </input>
+                <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities/serv">
+                  <label>44. Serviços (restaurantes, hotéis, etc.)</label>
+                </input>
+                <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities/adminis">
+                  <label>45. Administração pública e defesa</label>
+                </input>
+                <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities/education_work">
+                  <label>46. Trabalho na educação</label>
+                </input>
+                <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities/hosp_work">
+                  <label>47. Trabalho em serviços sanitários e sociais</label>
+                </input>
+                <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities/domestic_work">
+                  <label>48. Trabalho doméstico/cuidade de crianças</label>
+                </input>
+                <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities/study">
+                  <label>49. Estudos</label>
+                </input>
+                <select1 ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities/rdperson_payment">
+                  <label>50. Teve que pagar alguém, fazer tais actividades, enquanto você cuidava do filho?</label>
+                  <item>
+                    <label>Sim</label>
+                    <value>1</value>
+                  </item>
+                  <item>
+                    <label>Não</label>
+                    <value>2</value>
+                  </item>
+                </select1>
+                <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/preencher/activities/payment_value">
+                  <label>51. Quanto é que pagou?</label>
+                </input>
+              </group>
+            </group>
+            <group ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/clinic_data">
+              <label>Dados Clinicos</label>
+              <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/clinic_data/ax_temp">
+                <label>53. Temperatura axilar</label>
+              </input>
+              <select1 ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/clinic_data/fever_detec">
+                <label>54. A criança teve febre nas ultimas 48 horas?</label>
+                <item>
+                  <label>Sim</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>Não</label>
+                  <value>2</value>
+                </item>
+                <item>
+                  <label>Não sei</label>
+                  <value>3</value>
+                </item>
+              </select1>
+              <select1 ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/clinic_data/anti_malarians">
+                <label>55. A crianca recebeu antimalaricos nos ultimos 30 dias?</label>
+                <item>
+                  <label>Sim</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>Não</label>
+                  <value>2</value>
+                </item>
+                <item>
+                  <label>Não sei</label>
+                  <value>3</value>
+                </item>
+              </select1>
+              <select1 ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/clinic_data/drugs_type">
+                <label>56. Se sim, qual?</label>
+                <item>
+                  <label>CoArtem</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>Fansidar</label>
+                  <value>2</value>
+                </item>
+                <item>
+                  <label>Artesunato</label>
+                  <value>3</value>
+                </item>
+                <item>
+                  <label>Amodiaquina</label>
+                  <value>4</value>
+                </item>
+                <item>
+                  <label>Quinino</label>
+                  <value>5</value>
+                </item>
+                <item>
+                  <label>Nao sei</label>
+                  <value>6</value>
+                </item>
+                <item>
+                  <label>Outro</label>
+                  <value>7</value>
+                </item>
+              </select1>
+              <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/clinic_data/drugs_specifiy">
+                <label>Especifique</label>
+              </input>
+              <select1 ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/clinic_data/vacins">
+                <label>57. A criança recebeu todas as vacinas do PAV para sua idade?</label>
+                <item>
+                  <label>Sim</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>Não</label>
+                  <value>2</value>
+                </item>
+                <item>
+                  <label>Não sei</label>
+                  <value>3</value>
+                </item>
+              </select1>
+            </group>
+            <group ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/amostras">
+              <label>Recolha de Amostras</label>
+              <select1 ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/amostras/test_result">
+                <label>58. Resultados dos testes rapidos da malaria</label>
+                <item>
+                  <label>Positvo</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>Negativo</label>
+                  <value>2</value>
+                </item>
+                <item>
+                  <label>Invalido</label>
+                  <value>3</value>
+                </item>
+                <item>
+                  <label>Nao feito</label>
+                  <value>4</value>
+                </item>
+              </select1>
+              <select1 ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/amostras/positive_test">
+                <label>59. Se o teste rapido de malaria foi positivo, cumpriu com o tratamento de forma adequada?</label>
+                <item>
+                  <label>Sim</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>Não</label>
+                  <value>2</value>
+                </item>
+              </select1>
+              <select1 ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/amostras/why_not">
+                <label>60. Se não, porquê?</label>
+                <item>
+                  <label>Recusou</label>
+                  <value>1</value>
+                </item>
+                <item>
+                  <label>O participante recebeu um tratamento completo de antimalarico nos ultimos 15 dias e desde entao tem tido febre.</label>
+                  <value>2</value>
+                </item>
+                <item>
+                  <label>Outro</label>
+                  <value>3</value>
+                </item>
+              </select1>
+              <input ref="/SSP_COST_001_A03_V0.3_PT/seguimentos/child_repeat/child/amostras/speci">
+                <label>Especifique</label>
+              </input>
+            </group>
+          </group>
+        </repeat>
+      </group>
+    </group>
+    <group appearance="field-list" ref="/SSP_COST_001_A03_V0.3_PT/lab">
+      <label>61. Assinatura inquiridor</label>
+      <input ref="/SSP_COST_001_A03_V0.3_PT/lab/field_worker_lab">
+        <label>Codigo do inquriridor</label>
+      </input>
+      <input ref="/SSP_COST_001_A03_V0.3_PT/lab/fw_name">
+        <label>Nome do Inquiridor</label>
+      </input>
+      <input ref="/SSP_COST_001_A03_V0.3_PT/lab/date_inq_lab">
+        <label>Data:</label>
+      </input>
+    </group>
+  </h:body>
+</h:html>
