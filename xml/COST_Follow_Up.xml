@@ -1,0 +1,903 @@
+<?xml version="1.0"?>
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:orx="http://openrosa.org/xforms" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>COST_Follow_Up</h:title>
+    <model>
+      <instance>
+        <COST_Follow_Up id="COST_Follow_Up">
+          <deviceid/>
+          <start/>
+          <end/>
+          <fw_id/>
+          <fw_name/>
+          <family_id/>
+          <demografic>
+            <dob/>
+            <gender/>
+            <visit_date/>
+            <consent/>
+            <consent_why/>
+          </demografic>
+          <main>
+            <malaria_control>
+              <paint/>
+              <net_sleepun/>
+              <txt/>
+              <net_hole/>
+              <net_loc/>
+              <net_wash/>
+              <washnr/>
+              <precaution/>
+              <precaution_cost/>
+            </malaria_control>
+            <childs jr:template="">
+              <perm_id/>
+              <had_malaria/>
+              <diagnostic_person/>
+              <diagnostic_type/>
+              <trad/>
+              <trad_con_cost/>
+              <trad_trad_visitno/>
+              <trad_material_cost/>
+              <trad_travel_cost/>
+              <comty/>
+              <comty_cons_cost/>
+              <comty_test_cost/>
+              <comty_treat_cost/>
+              <hf_attend/>
+              <heath_unit/>
+              <hf_bills/>
+              <hf_time_dur/>
+              <hf_atend_cost/>
+              <hf_test_cost/>
+              <hf_treat_cost/>
+              <intern/>
+              <days_no/>
+              <cost/>
+              <feeding_cost/>
+              <expense/>
+              <spec_expense/>
+              <expense_cost/>
+              <txt2/>
+              <cost_after_intern/>
+              <txt3/>
+              <agriculture/>
+              <agriculture_time/>
+              <industry/>
+              <industry_time/>
+              <commercy/>
+              <commercy_time/>
+              <services/>
+              <services_time/>
+              <admin/>
+              <admin_time/>
+              <education_work/>
+              <education_work_time/>
+              <hosp_work/>
+              <hosp_work_time/>
+              <home_work/>
+              <home_work_time/>
+              <study/>
+              <study_time/>
+              <rdperson_payment/>
+              <payment_value/>
+            </childs>
+            <clinic_data>
+              <ax_temp/>
+              <fever_detec/>
+              <anti_malarians/>
+              <drug/>
+              <drug_specifiy/>
+              <vacins/>
+            </clinic_data>
+            <amostras>
+              <test_result/>
+              <positive_test/>
+              <why_not/>
+              <spec_why_not/>
+            </amostras>
+          </main>
+          <processed/>
+          <meta>
+            <instanceID/>
+            <instanceName/>
+          </meta>
+        </COST_Follow_Up>
+      </instance>
+      <bind jr:preload="property" jr:preloadParams="deviceid" nodeset="/COST_Follow_Up/deviceid" type="string"/>
+      <bind jr:preload="timestamp" jr:preloadParams="start" nodeset="/COST_Follow_Up/start" type="dateTime"/>
+      <bind jr:preload="timestamp" jr:preloadParams="end" nodeset="/COST_Follow_Up/end" type="dateTime"/>
+      <bind nodeset="/COST_Follow_Up/fw_id" required="true()" type="string"/>
+      <bind nodeset="/COST_Follow_Up/fw_name" required="true()" type="string"/>
+      <bind constraint="(regex(., '^[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9]$'))" jr:constraintMsg="Formato XXX-XXXX-XXX" nodeset="/COST_Follow_Up/family_id" required="true()" type="string"/>
+      <bind jr:constraintMsg=". &lt;= today()" nodeset="/COST_Follow_Up/demografic/dob" required="true()" type="date"/>
+      <bind nodeset="/COST_Follow_Up/demografic/gender" required="true()" type="select1"/>
+      <bind jr:constraintMsg=". &lt;= today() and (. &gt;= date('2016-12-01'))" nodeset="/COST_Follow_Up/demografic/visit_date" required="true()" type="date"/>
+      <bind nodeset="/COST_Follow_Up/demografic/consent" required="true()" type="select1"/>
+      <bind nodeset="/COST_Follow_Up/demografic/consent_why" relevant=" /COST_Follow_Up/demografic/consent  = 1" required="true()" type="string"/>
+      <bind nodeset="/COST_Follow_Up/main" relevant=" /COST_Follow_Up/demografic/consent  = 2"/>
+      <bind nodeset="/COST_Follow_Up/main/malaria_control/paint" required="true()" type="select1"/>
+      <bind nodeset="/COST_Follow_Up/main/malaria_control/net_sleepun" required="true()" type="select1"/>
+      <bind nodeset="/COST_Follow_Up/main/malaria_control/txt" readonly="true()" type="string"/>
+      <bind nodeset="/COST_Follow_Up/main/malaria_control/net_hole" relevant=" /COST_Follow_Up/main/malaria_control/net_sleepun  = 1" required="true()" type="select1"/>
+      <bind nodeset="/COST_Follow_Up/main/malaria_control/net_loc" required="true()" type="select1"/>
+      <bind nodeset="/COST_Follow_Up/main/malaria_control/net_wash" required="true()" type="select1"/>
+      <bind nodeset="/COST_Follow_Up/main/malaria_control/washnr" relevant=" /COST_Follow_Up/main/malaria_control/net_wash  = 1" required="true()" type="select1"/>
+      <bind nodeset="/COST_Follow_Up/main/malaria_control/precaution" required="true()" type="select1"/>
+      <bind jr:constraintMsg=". &gt;=0" nodeset="/COST_Follow_Up/main/malaria_control/precaution_cost" relevant=" /COST_Follow_Up/main/malaria_control/precaution  = 1 or  /COST_Follow_Up/main/malaria_control/precaution  = 2 or  /COST_Follow_Up/main/malaria_control/precaution  = 3" required="true()" type="int"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/perm_id" required="true()" type="string"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/had_malaria" required="true()" type="select1"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/diagnostic_person" required="true()" type="select1"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/diagnostic_type" required="true()" type="select1"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/trad" required="true()" type="select1"/>
+      <bind jr:constraintMsg="(. &gt;=0) or (. = -99)" nodeset="/COST_Follow_Up/main/childs/trad_con_cost" relevant=" /COST_Follow_Up/main/childs/trad  = 1" required="true()" type="int"/>
+      <bind jr:constraintMsg="(. &gt;=0) or (. = -99)" nodeset="/COST_Follow_Up/main/childs/trad_trad_visitno" relevant=" /COST_Follow_Up/main/childs/trad  = 1" required="true()" type="int"/>
+      <bind jr:constraintMsg="(. &gt;=0) or (. = -99)" nodeset="/COST_Follow_Up/main/childs/trad_material_cost" relevant=" /COST_Follow_Up/main/childs/trad  = 1" required="true()" type="int"/>
+      <bind jr:constraintMsg="(. &gt;=0) or (. = -99)" nodeset="/COST_Follow_Up/main/childs/trad_travel_cost" relevant=" /COST_Follow_Up/main/childs/trad  = 1" required="true()" type="int"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/comty" required="true()" type="select1"/>
+      <bind jr:constraintMsg="(. &gt;=0) or (. = -99)" nodeset="/COST_Follow_Up/main/childs/comty_cons_cost" relevant=" /COST_Follow_Up/main/childs/comty  = 1" required="true()" type="int"/>
+      <bind jr:constraintMsg="(. &gt;=0) or (. = -99)" nodeset="/COST_Follow_Up/main/childs/comty_test_cost" relevant=" /COST_Follow_Up/main/childs/comty  = 1" required="true()" type="int"/>
+      <bind jr:constraintMsg="(. &gt;=0) or (. = -99)" nodeset="/COST_Follow_Up/main/childs/comty_treat_cost" relevant=" /COST_Follow_Up/main/childs/comty  = 1" required="true()" type="int"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/hf_attend" required="true()" type="select1"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/heath_unit" relevant=" /COST_Follow_Up/main/childs/hf_attend  = 1" required="true()" type="select1"/>
+      <bind jr:constraintMsg="(. &gt;=0) or (. = -99)" nodeset="/COST_Follow_Up/main/childs/hf_bills" relevant=" /COST_Follow_Up/main/childs/hf_attend  = 1" required="true()" type="int"/>
+      <bind jr:constraintMsg="(. &gt;=0) or (. = -99)" nodeset="/COST_Follow_Up/main/childs/hf_time_dur" relevant=" /COST_Follow_Up/main/childs/hf_attend  = 1" required="true()" type="int"/>
+      <bind jr:constraintMsg="(. &gt;=0) or (. = -99)" nodeset="/COST_Follow_Up/main/childs/hf_atend_cost" relevant=" /COST_Follow_Up/main/childs/hf_attend  = 1" required="true()" type="int"/>
+      <bind jr:constraintMsg="(. &gt;=0) or (. = -99)" nodeset="/COST_Follow_Up/main/childs/hf_test_cost" relevant=" /COST_Follow_Up/main/childs/hf_attend  = 1" required="true()" type="int"/>
+      <bind jr:constraintMsg="(. &gt;=0) or (. = -99)" nodeset="/COST_Follow_Up/main/childs/hf_treat_cost" relevant=" /COST_Follow_Up/main/childs/hf_attend  = 1" required="true()" type="int"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/intern" required="true()" type="select1"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/days_no" relevant=" /COST_Follow_Up/main/childs/intern  = 1" required="true()" type="int"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/cost" relevant=" /COST_Follow_Up/main/childs/intern  = 1" required="true()" type="int"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/feeding_cost" relevant=" /COST_Follow_Up/main/childs/intern  = 1" required="true()" type="int"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/expense" relevant=" /COST_Follow_Up/main/childs/intern  = 1" required="true()" type="select1"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/spec_expense" relevant=" /COST_Follow_Up/main/childs/expense  = 1" required="true()" type="string"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/expense_cost" relevant=" /COST_Follow_Up/main/childs/expense  = 1" required="true()" type="int"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/txt2" readonly="true()" type="string"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/cost_after_intern" required="true()" type="int"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/txt3" readonly="true()" type="string"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/agriculture" required="true()" type="select1"/>
+      <bind jr:constraintMsg="(. &gt;=0) or (. = -99)" nodeset="/COST_Follow_Up/main/childs/agriculture_time" relevant=" /COST_Follow_Up/main/childs/agriculture  = 1" required="true()" type="int"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/industry" required="true()" type="select1"/>
+      <bind jr:constraintMsg="(. &gt;=0) or (. = -99)" nodeset="/COST_Follow_Up/main/childs/industry_time" relevant=" /COST_Follow_Up/main/childs/industry  = 1" required="true()" type="int"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/commercy" required="true()" type="select1"/>
+      <bind jr:constraintMsg="(. &gt;=0) or (. = -99)" nodeset="/COST_Follow_Up/main/childs/commercy_time" relevant=" /COST_Follow_Up/main/childs/commercy  = 1" required="true()" type="int"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/services" required="true()" type="select1"/>
+      <bind jr:constraintMsg="(. &gt;=0) or (. = -99)" nodeset="/COST_Follow_Up/main/childs/services_time" relevant=" /COST_Follow_Up/main/childs/services  = 1" required="true()" type="int"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/admin" required="true()" type="select1"/>
+      <bind jr:constraintMsg="(. &gt;=0) or (. = -99)" nodeset="/COST_Follow_Up/main/childs/admin_time" relevant=" /COST_Follow_Up/main/childs/admin  = 1" required="true()" type="int"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/education_work" required="true()" type="select1"/>
+      <bind jr:constraintMsg="(. &gt;=0) or (. = -99)" nodeset="/COST_Follow_Up/main/childs/education_work_time" relevant=" /COST_Follow_Up/main/childs/education_work  = 1" required="true()" type="int"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/hosp_work" required="true()" type="select1"/>
+      <bind jr:constraintMsg="(. &gt;=0) or (. = -99)" nodeset="/COST_Follow_Up/main/childs/hosp_work_time" relevant=" /COST_Follow_Up/main/childs/hosp_work  = 1" required="true()" type="int"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/home_work" required="true()" type="select1"/>
+      <bind jr:constraintMsg="(. &gt;=0) or (. = -99)" nodeset="/COST_Follow_Up/main/childs/home_work_time" relevant=" /COST_Follow_Up/main/childs/home_work  = 1" required="true()" type="int"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/study" required="true()" type="select1"/>
+      <bind jr:constraintMsg="(. &gt;=0) or (. = -99)" nodeset="/COST_Follow_Up/main/childs/study_time" relevant=" /COST_Follow_Up/main/childs/study  = 1" required="true()" type="int"/>
+      <bind nodeset="/COST_Follow_Up/main/childs/rdperson_payment" required="true()" type="select1"/>
+      <bind jr:constraintMsg="(. &gt;=0) or (. = -99)" nodeset="/COST_Follow_Up/main/childs/payment_value" required="true()" type="int"/>
+      <bind nodeset="/COST_Follow_Up/main/clinic_data/ax_temp" required="true()" type="decimal"/>
+      <bind nodeset="/COST_Follow_Up/main/clinic_data/fever_detec" required="true()" type="select1"/>
+      <bind nodeset="/COST_Follow_Up/main/clinic_data/anti_malarians" required="true()" type="select1"/>
+      <bind nodeset="/COST_Follow_Up/main/clinic_data/drug" relevant=" /COST_Follow_Up/main/clinic_data/anti_malarians  = 1" required="true()" type="select1"/>
+      <bind jr:constraintMsg="(. &gt;=0) or (. = -99)" nodeset="/COST_Follow_Up/main/clinic_data/drug_specifiy" relevant=" /COST_Follow_Up/main/clinic_data/drug  = 7" required="true()" type="string"/>
+      <bind nodeset="/COST_Follow_Up/main/clinic_data/vacins" required="true()" type="select1"/>
+      <bind nodeset="/COST_Follow_Up/main/amostras/test_result" required="true()" type="select1"/>
+      <bind nodeset="/COST_Follow_Up/main/amostras/positive_test" relevant=" /COST_Follow_Up/main/amostras/test_result  = 1" required="true()" type="select1"/>
+      <bind nodeset="/COST_Follow_Up/main/amostras/why_not" relevant=" /COST_Follow_Up/main/amostras/positive_test  = 2" required="true()" type="select1"/>
+      <bind nodeset="/COST_Follow_Up/main/amostras/spec_why_not" relevant=" /COST_Follow_Up/main/amostras/why_not  = 3" required="true()" type="string"/>
+      <bind nodeset="/COST_Follow_Up/processed" readonly="true()" type="int"/>
+      <bind calculate="concat('uuid:', uuid())" nodeset="/COST_Follow_Up/meta/instanceID" readonly="true()" type="string"/>
+      <bind calculate="concat(&quot;COST_Follow_Up-&quot;, /COST_Follow_Up/main/childs/perm_id )" nodeset="/COST_Follow_Up/meta/instanceName" type="string"/>
+    </model>
+  </h:head>
+  <h:body>
+    <input ref="/COST_Follow_Up/fw_id">
+      <label>Código do Inquiridor</label>
+    </input>
+    <input ref="/COST_Follow_Up/fw_name">
+      <label>Nome do Inquiridor</label>
+    </input>
+    <input ref="/COST_Follow_Up/family_id">
+      <label>1. Número do agregado</label>
+      <hint>formato XXX-XXXX-XXX</hint>
+    </input>
+    <group ref="/COST_Follow_Up/demografic">
+      <label>INFORMAÇÃO SOCIO-DEMOGRÁFICA</label>
+      <input ref="/COST_Follow_Up/demografic/dob">
+        <label>2. Data de nascimento</label>
+      </input>
+      <select1 ref="/COST_Follow_Up/demografic/gender">
+        <label>3. Sexo</label>
+        <item>
+          <label>Masculino</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>Feminino</label>
+          <value>2</value>
+        </item>
+      </select1>
+      <input ref="/COST_Follow_Up/demografic/visit_date">
+        <label>4. Data da visita</label>
+      </input>
+      <select1 ref="/COST_Follow_Up/demografic/consent">
+        <label>5. Retirou o consentimento de participação?</label>
+        <hint>Se sim, parar de preencher o inquerito!</hint>
+        <item>
+          <label>Sim</label>
+          <value>1</value>
+        </item>
+        <item>
+          <label>Não</label>
+          <value>2</value>
+        </item>
+      </select1>
+      <input ref="/COST_Follow_Up/demografic/consent_why">
+        <label>6. Se sim, porquê? Especifique</label>
+      </input>
+    </group>
+    <group ref="/COST_Follow_Up/main">
+      <label>VISITAS DE SEGUIMENTO DE DETECÇÃO ACTIVA DE CASOS</label>
+      <group ref="/COST_Follow_Up/main/malaria_control">
+        <label>CONTROLO DE MALÁRIA</label>
+        <select1 ref="/COST_Follow_Up/main/malaria_control/paint">
+          <label>7. Reboucou ou pintou a sua casa no ultimo mês?</label>
+          <item>
+            <label>Sim</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Não sei</label>
+            <value>3</value>
+          </item>
+        </select1>
+        <select1 ref="/COST_Follow_Up/main/malaria_control/net_sleepun">
+          <label>8. O participante dormiu debaixo da rede mosquiteira?</label>
+          <item>
+            <label>Sim</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Não sei</label>
+            <value>3</value>
+          </item>
+        </select1>
+        <input ref="/COST_Follow_Up/main/malaria_control/txt">
+          <label>Por favor, peça ao PAI ou MAE/cuidador para lhe mostrar a rede</label>
+        </input>
+        <select1 ref="/COST_Follow_Up/main/malaria_control/net_hole">
+          <label>9. Observe a rede por todos os lados. Tem furos maiores do que a ponta do seu polegar?</label>
+          <item>
+            <label>Sim</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não</label>
+            <value>2</value>
+          </item>
+        </select1>
+        <select1 ref="/COST_Follow_Up/main/malaria_control/net_loc">
+          <label>10. Onde está a rede?</label>
+          <item>
+            <label>Pendurada, arrumada</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não pendurado, não arrumado</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Não pendurado, mas acessivel</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>Não pendurado, e não acessivel</label>
+            <value>4</value>
+          </item>
+          <item>
+            <label>Outro</label>
+            <value>5</value>
+          </item>
+        </select1>
+        <select1 ref="/COST_Follow_Up/main/malaria_control/net_wash">
+          <label>11. Lavou a rede desde a minha ultima visita?</label>
+          <item>
+            <label>Sim</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não</label>
+            <value>2</value>
+          </item>
+        </select1>
+        <select1 ref="/COST_Follow_Up/main/malaria_control/washnr">
+          <label>12. Se sim, quantas vezes?</label>
+          <item>
+            <label>1</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>2</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>3</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>Mais de 3</label>
+            <value>4</value>
+          </item>
+          <item>
+            <label>Não sei</label>
+            <value>5</value>
+          </item>
+        </select1>
+        <select1 ref="/COST_Follow_Up/main/malaria_control/precaution">
+          <label>13. Usou algumas das seguintes medidas durante a última semana?</label>
+          <item>
+            <label>Espirais</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Repelentes</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Insecticidas(Baygon)</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>Nenhum</label>
+            <value>4</value>
+          </item>
+        </select1>
+        <input ref="/COST_Follow_Up/main/malaria_control/precaution_cost">
+          <label>14. Se sim, quanto pagou?</label>
+          <hint>Preenche com &quot;000&quot; se foi gratis</hint>
+        </input>
+      </group>
+      <group ref="/COST_Follow_Up/main/childs">
+        <label>CUIDADO CONTRA MALÁRIA E DESPESAS RELACIONADA!</label>
+        <repeat nodeset="/COST_Follow_Up/main/childs">
+          <input ref="/COST_Follow_Up/main/childs/perm_id">
+            <label>15. Numero do participante</label>
+          </input>
+          <select1 ref="/COST_Follow_Up/main/childs/had_malaria">
+            <label>16. A criança teve malária nos últimos 30 dias?</label>
+            <item>
+              <label>Sim</label>
+              <value>1</value>
+            </item>
+            <item>
+              <label>Não</label>
+              <value>2</value>
+            </item>
+            <item>
+              <label>Não sei</label>
+              <value>3</value>
+            </item>
+          </select1>
+          <select1 ref="/COST_Follow_Up/main/childs/diagnostic_person">
+            <label>17. a. Quêm ajudou a diagnosticar a doença?</label>
+            <item>
+              <label>Curandeiro</label>
+              <value>1</value>
+            </item>
+            <item>
+              <label>Um parente experiente</label>
+              <value>2</value>
+            </item>
+            <item>
+              <label>Pessoal de saúde</label>
+              <value>3</value>
+            </item>
+            <item>
+              <label>Outro</label>
+              <value>4</value>
+            </item>
+          </select1>
+          <select1 ref="/COST_Follow_Up/main/childs/diagnostic_type">
+            <label>17. b. Como é que foi diagnosticado?</label>
+            <item>
+              <label>Exame médico</label>
+              <value>1</value>
+            </item>
+            <item>
+              <label>Febre</label>
+              <value>2</value>
+            </item>
+            <item>
+              <label>Outros sintomas</label>
+              <value>3</value>
+            </item>
+          </select1>
+          <select1 ref="/COST_Follow_Up/main/childs/trad">
+            <label>18. Procuraram atendimento num curandeiro?</label>
+            <item>
+              <label>Sim</label>
+              <value>1</value>
+            </item>
+            <item>
+              <label>Não</label>
+              <value>2</value>
+            </item>
+            <item>
+              <label>Não sei</label>
+              <value>3</value>
+            </item>
+          </select1>
+          <input ref="/COST_Follow_Up/main/childs/trad_con_cost">
+            <label>19. Quanto éque custou a consulta?</label>
+          </input>
+          <input ref="/COST_Follow_Up/main/childs/trad_trad_visitno">
+            <label>20. Quantas vezes a sua familia visitou o curandeiro?</label>
+          </input>
+          <input ref="/COST_Follow_Up/main/childs/trad_material_cost">
+            <label>21. Quanto custaram os materiais?</label>
+          </input>
+          <input ref="/COST_Follow_Up/main/childs/trad_travel_cost">
+            <label>22. Quanto custaram as despesas da viagem (ida)?</label>
+          </input>
+          <select1 ref="/COST_Follow_Up/main/childs/comty">
+            <label>22. Procuraram atendimento no responsável sanitário da comunidade?</label>
+            <item>
+              <label>Sim</label>
+              <value>1</value>
+            </item>
+            <item>
+              <label>Não</label>
+              <value>2</value>
+            </item>
+            <item>
+              <label>Não sei</label>
+              <value>3</value>
+            </item>
+          </select1>
+          <input ref="/COST_Follow_Up/main/childs/comty_cons_cost">
+            <label>23. Quanto custou a consulta?</label>
+          </input>
+          <input ref="/COST_Follow_Up/main/childs/comty_test_cost">
+            <label>24. Quanto custou o teste?</label>
+          </input>
+          <input ref="/COST_Follow_Up/main/childs/comty_treat_cost">
+            <label>25. Quanto custou o tratamento?</label>
+          </input>
+          <select1 ref="/COST_Follow_Up/main/childs/hf_attend">
+            <label>26. Procuraram atendimento na unidade sanitária?</label>
+            <item>
+              <label>Sim</label>
+              <value>1</value>
+            </item>
+            <item>
+              <label>Não</label>
+              <value>2</value>
+            </item>
+            <item>
+              <label>Não sei</label>
+              <value>3</value>
+            </item>
+          </select1>
+          <select1 ref="/COST_Follow_Up/main/childs/heath_unit">
+            <label>27. Se sim, qual foi a unidade sanitaria?</label>
+            <item>
+              <label>Mopeia-Sede</label>
+              <value>1</value>
+            </item>
+            <item>
+              <label>8 de Marco</label>
+              <value>2</value>
+            </item>
+            <item>
+              <label>Catale</label>
+              <value>3</value>
+            </item>
+            <item>
+              <label>Mungane</label>
+              <value>4</value>
+            </item>
+            <item>
+              <label>Gulamo</label>
+              <value>5</value>
+            </item>
+            <item>
+              <label>Posto Campo</label>
+              <value>6</value>
+            </item>
+            <item>
+              <label>Nhacatundo</label>
+              <value>7</value>
+            </item>
+            <item>
+              <label>Lualua</label>
+              <value>8</value>
+            </item>
+            <item>
+              <label>Nzanza</label>
+              <value>9</value>
+            </item>
+            <item>
+              <label>Chimuara</label>
+              <value>10</value>
+            </item>
+            <item>
+              <label>Noere</label>
+              <value>11</value>
+            </item>
+            <item>
+              <label>Sanagalaza</label>
+              <value>12</value>
+            </item>
+          </select1>
+          <input ref="/COST_Follow_Up/main/childs/hf_bills">
+            <label>28. Quanto custaram as despesas da viagem (ida)?</label>
+          </input>
+          <input ref="/COST_Follow_Up/main/childs/hf_time_dur">
+            <label>29. Quanto tempo demorou para chegar à unidade sanitária?</label>
+            <hint>minutos (Digite -99 se nao sabe)</hint>
+          </input>
+          <input ref="/COST_Follow_Up/main/childs/hf_atend_cost">
+            <label>30. Quanto custou a consulta?</label>
+            <hint>Digite -99 se nao sabe</hint>
+          </input>
+          <input ref="/COST_Follow_Up/main/childs/hf_test_cost">
+            <label>31. Quanto custou o teste?</label>
+            <hint>Digite -99 se nao sabe</hint>
+          </input>
+          <input ref="/COST_Follow_Up/main/childs/hf_treat_cost">
+            <label>32. Quanto custou o tratamento</label>
+            <hint>Digite -99 se nao sabe</hint>
+          </input>
+          <select1 ref="/COST_Follow_Up/main/childs/intern">
+            <label>33. A criança chegou de ser hospitalizada?</label>
+            <item>
+              <label>Sim</label>
+              <value>1</value>
+            </item>
+            <item>
+              <label>Não</label>
+              <value>2</value>
+            </item>
+          </select1>
+          <input ref="/COST_Follow_Up/main/childs/days_no">
+            <label>34. Se sim, quantos dias?</label>
+            <hint>Digite -99 se nao sabe</hint>
+          </input>
+          <input ref="/COST_Follow_Up/main/childs/cost">
+            <label>35. Quanto é que gastaram com chamadas durante a hospitalização?</label>
+            <hint>Digite -99 se nao sabe</hint>
+          </input>
+          <input ref="/COST_Follow_Up/main/childs/feeding_cost">
+            <label>36. Quanto gastaram em alimentação durante a hospitalização?</label>
+            <hint>Digite -99 se nao sabe</hint>
+          </input>
+          <select1 ref="/COST_Follow_Up/main/childs/expense">
+            <label>37. Alguma outra despesa?</label>
+            <item>
+              <label>Sim</label>
+              <value>1</value>
+            </item>
+            <item>
+              <label>Não</label>
+              <value>2</value>
+            </item>
+          </select1>
+          <input ref="/COST_Follow_Up/main/childs/spec_expense">
+            <label>Especifique</label>
+          </input>
+          <input ref="/COST_Follow_Up/main/childs/expense_cost">
+            <label>38. Quanto é que gastaram com a tal despesa?</label>
+            <hint>Digite -99 se nao sabe</hint>
+          </input>
+          <input ref="/COST_Follow_Up/main/childs/txt2">
+            <label>Independentemente de terem visitado um curandeiro, um APE ou uma Unidade sanitaria, pergunte:</label>
+          </input>
+          <input ref="/COST_Follow_Up/main/childs/cost_after_intern">
+            <label>39. Quanto foi pago pelos medicamentos depois do participante ter voltado para casa?</label>
+            <hint>Independentemente de terem visitado um curandeiro, um APE ou uma unidade sanitaria, pergunte</hint>
+          </input>
+          <input ref="/COST_Follow_Up/main/childs/txt3">
+            <label>ALGUÉM TEVE QUE CANCELAR ALGUMAS DAS SEGUINTES ACTIVIDADES POR CAUSA DA DOENÇA DA CRIANÇA?</label>
+          </input>
+          <select1 ref="/COST_Follow_Up/main/childs/agriculture">
+            <label>41. Agricultura, pesca, mineração</label>
+            <item>
+              <label>Sim</label>
+              <value>1</value>
+            </item>
+            <item>
+              <label>Não</label>
+              <value>2</value>
+            </item>
+          </select1>
+          <input ref="/COST_Follow_Up/main/childs/agriculture_time">
+            <label>Por favor, escreva o número de horas diárias perdidas para cada actividade durante o episódio da malária</label>
+            <hint>Digite -99 se nao sabe</hint>
+          </input>
+          <select1 ref="/COST_Follow_Up/main/childs/industry">
+            <label>42. Indústria alimentar ou outras indústrias</label>
+            <item>
+              <label>Sim</label>
+              <value>1</value>
+            </item>
+            <item>
+              <label>Não</label>
+              <value>2</value>
+            </item>
+          </select1>
+          <input ref="/COST_Follow_Up/main/childs/industry_time">
+            <label>Por favor, escreva o número de horas diárias perdidas para cada actividade durante o episódio da malária</label>
+            <hint>Digite -99 se nao sabe</hint>
+          </input>
+          <select1 ref="/COST_Follow_Up/main/childs/commercy">
+            <label>43. Comércio / Mercado</label>
+            <item>
+              <label>Sim</label>
+              <value>1</value>
+            </item>
+            <item>
+              <label>Não</label>
+              <value>2</value>
+            </item>
+          </select1>
+          <input ref="/COST_Follow_Up/main/childs/commercy_time">
+            <label>Por favor, escreva o número de horas diárias perdidas para cada actividade durante o episódio da malária</label>
+            <hint>Digite -99 se nao sabe</hint>
+          </input>
+          <select1 ref="/COST_Follow_Up/main/childs/services">
+            <label>44. Serviços (restaurantes, hotéis, etc.)</label>
+            <item>
+              <label>Sim</label>
+              <value>1</value>
+            </item>
+            <item>
+              <label>Não</label>
+              <value>2</value>
+            </item>
+          </select1>
+          <input ref="/COST_Follow_Up/main/childs/services_time">
+            <label>Por favor, escreva o número de horas diárias perdidas para cada actividade durante o episódio da malária</label>
+            <hint>Digite -99 se nao sabe</hint>
+          </input>
+          <select1 ref="/COST_Follow_Up/main/childs/admin">
+            <label>45. Administração pública e defesa</label>
+            <item>
+              <label>Sim</label>
+              <value>1</value>
+            </item>
+            <item>
+              <label>Não</label>
+              <value>2</value>
+            </item>
+          </select1>
+          <input ref="/COST_Follow_Up/main/childs/admin_time">
+            <label>Por favor, escreva o número de horas diárias perdidas para cada actividade durante o episódio da malária</label>
+            <hint>Digite -99 se nao sabe</hint>
+          </input>
+          <select1 ref="/COST_Follow_Up/main/childs/education_work">
+            <label>46. Trabalho na educação</label>
+            <item>
+              <label>Sim</label>
+              <value>1</value>
+            </item>
+            <item>
+              <label>Não</label>
+              <value>2</value>
+            </item>
+          </select1>
+          <input ref="/COST_Follow_Up/main/childs/education_work_time">
+            <label>Por favor, escreva o número de horas diárias perdidas para cada actividade durante o episódio da malária</label>
+            <hint>Digite -99 se nao sabe</hint>
+          </input>
+          <select1 ref="/COST_Follow_Up/main/childs/hosp_work">
+            <label>47. Trabalho em serviços sanitários e sociais</label>
+            <item>
+              <label>Sim</label>
+              <value>1</value>
+            </item>
+            <item>
+              <label>Não</label>
+              <value>2</value>
+            </item>
+          </select1>
+          <input ref="/COST_Follow_Up/main/childs/hosp_work_time">
+            <label>Por favor, escreva o número de horas diárias perdidas para cada actividade durante o episódio da malária</label>
+            <hint>Digite -99 se nao sabe</hint>
+          </input>
+          <select1 ref="/COST_Follow_Up/main/childs/home_work">
+            <label>48. Trabalho doméstico/cuidade de crianças</label>
+            <item>
+              <label>Sim</label>
+              <value>1</value>
+            </item>
+            <item>
+              <label>Não</label>
+              <value>2</value>
+            </item>
+          </select1>
+          <input ref="/COST_Follow_Up/main/childs/home_work_time">
+            <label>Por favor, escreva o número de horas diárias perdidas para cada actividade durante o episódio da malária</label>
+            <hint>Digite -99 se nao sabe</hint>
+          </input>
+          <select1 ref="/COST_Follow_Up/main/childs/study">
+            <label>49. Estudos</label>
+            <item>
+              <label>Sim</label>
+              <value>1</value>
+            </item>
+            <item>
+              <label>Não</label>
+              <value>2</value>
+            </item>
+          </select1>
+          <input ref="/COST_Follow_Up/main/childs/study_time">
+            <label>Por favor, escreva o número de horas diárias perdidas para cada actividade durante o episódio da malária</label>
+            <hint>Digite -99 se nao sabe</hint>
+          </input>
+          <select1 ref="/COST_Follow_Up/main/childs/rdperson_payment">
+            <label>50. Teve que pagar alguém, fazer tais actividades, enquanto você cuidava do filho?</label>
+            <item>
+              <label>Sim</label>
+              <value>1</value>
+            </item>
+            <item>
+              <label>Não</label>
+              <value>2</value>
+            </item>
+          </select1>
+          <input ref="/COST_Follow_Up/main/childs/payment_value">
+            <label>51. Quanto é que pagou?</label>
+          </input>
+        </repeat>
+      </group>
+      <group ref="/COST_Follow_Up/main/clinic_data">
+        <label>DADOS CLINICOS</label>
+        <input ref="/COST_Follow_Up/main/clinic_data/ax_temp">
+          <label>53. Temperatura axilar (oC)</label>
+        </input>
+        <select1 ref="/COST_Follow_Up/main/clinic_data/fever_detec">
+          <label>54. A criança teve febre nas ultimas 48 horas?</label>
+          <item>
+            <label>Sim</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Não sei</label>
+            <value>3</value>
+          </item>
+        </select1>
+        <select1 ref="/COST_Follow_Up/main/clinic_data/anti_malarians">
+          <label>55. A crianca recebeu antimalaricos nos ultimos 30 dias?</label>
+          <item>
+            <label>Sim</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Não sei</label>
+            <value>3</value>
+          </item>
+        </select1>
+        <select1 ref="/COST_Follow_Up/main/clinic_data/drug">
+          <label>56. Se sim, qual? (maximo 2)</label>
+          <hint>Se for criança, verifique no cartão amarelo</hint>
+          <item>
+            <label>CoArtem</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Fansidar</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Artesunato</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>Amodiaquina</label>
+            <value>4</value>
+          </item>
+          <item>
+            <label>Quinino</label>
+            <value>5</value>
+          </item>
+          <item>
+            <label>Nao sei</label>
+            <value>6</value>
+          </item>
+          <item>
+            <label>Outro</label>
+            <value>7</value>
+          </item>
+        </select1>
+        <input ref="/COST_Follow_Up/main/clinic_data/drug_specifiy">
+          <label>Especifique</label>
+        </input>
+        <select1 ref="/COST_Follow_Up/main/clinic_data/vacins">
+          <label>57. A criança recebeu todas as vacinas do PAV para sua idade?</label>
+          <item>
+            <label>Sim</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Não sei</label>
+            <value>3</value>
+          </item>
+        </select1>
+      </group>
+      <group ref="/COST_Follow_Up/main/amostras">
+        <label>RECOLHA DE AMOSTRAS</label>
+        <select1 ref="/COST_Follow_Up/main/amostras/test_result">
+          <label>58. Resultados dos testes rapidos da malaria</label>
+          <item>
+            <label>Positvo</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Negativo</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Invalido</label>
+            <value>3</value>
+          </item>
+          <item>
+            <label>Nao feito</label>
+            <value>4</value>
+          </item>
+        </select1>
+        <select1 ref="/COST_Follow_Up/main/amostras/positive_test">
+          <label>59. Se o teste rapido de malaria foi positivo, cumpriu com o tratamento de forma adequada?</label>
+          <item>
+            <label>Sim</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>Não</label>
+            <value>2</value>
+          </item>
+        </select1>
+        <select1 ref="/COST_Follow_Up/main/amostras/why_not">
+          <label>60. Se não, porquê?</label>
+          <item>
+            <label>Recusou</label>
+            <value>1</value>
+          </item>
+          <item>
+            <label>O participante recebeu um tratamento completo de antimalarico nos ultimos 15 dias e desde entao tem tido febre.</label>
+            <value>2</value>
+          </item>
+          <item>
+            <label>Outro</label>
+            <value>3</value>
+          </item>
+        </select1>
+        <input ref="/COST_Follow_Up/main/amostras/spec_why_not">
+          <label>Especifique</label>
+        </input>
+      </group>
+    </group>
+    <input ref="/COST_Follow_Up/processed">
+      <label>processed</label>
+    </input>
+  </h:body>
+</h:html>
