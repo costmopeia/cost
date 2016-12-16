@@ -8,148 +8,25 @@
           <deviceid/>
           <start/>
           <end/>
-          <fw_id/>
-          <fw_name/>
-          <family_id/>
-          <demografic>
-            <dob/>
-            <gender/>
-            <date_visit/>
-            <consent/>
-            <consent_whynot/>
-          </demografic>
-          <main>
-            <txt/>
-            <education/>
-            <read/>
-            <write/>
-            <ocupation/>
-            <mstatus/>
-            <together/>
-            <water/>
-            <water_channel/>
-            <water_well/>
-            <waterloc/>
-            <time_taken/>
-            <watertreat/>
-            <latrine/>
-            <latrine_shared/>
-            <wc_familyno/>
-            <hh_appliance/>
-            <fuel/>
-            <alconfec/>
-            <ground/>
-            <roof/>
-            <wall/>
-            <rooms/>
-            <posses/>
-            <land_cultiv/>
-            <land_cultiv_dim/>
-            <animals/>
-            <animal>
-              <cattle/>
-              <horse/>
-              <coats/>
-              <sheep/>
-              <pigs/>
-              <chick/>
-            </animal>
-            <bank_acc/>
-            <malaria_control>
-              <spray/>
-              <w_spray/>
-              <spray_date/>
-              <has_nets/>
-              <nets/>
-              <txt1/>
-              <net_count/>
-              <net jr:template="">
-                <brand/>
-                <specify/>
-                <hole/>
-                <location/>
-                <acquisition/>
-                <cost/>
-                <host/>
-                <sleepers/>
-                <treatment/>
-                <treatment_again/>
-                <treatment_last/>
-                <wash/>
-              </net>
-              <outs_sleep/>
-              <out_sleep/>
-              <osleepreason/>
-              <undernet_sleep/>
-              <undernet_sleeps/>
-              <medidas/>
-              <custotech/>
-            </malaria_control>
-            <cuid_malaria jr:template="">
-              <perm_id/>
-              <had_malaria/>
-              <dsickness/>
-              <diagnostic/>
-              <healer/>
-              <healer_cons_cost/>
-              <healer_visit_nr/>
-              <healer_mater_cost/>
-              <healer_trav_cost/>
-              <ape_search/>
-              <ape_cons_cost/>
-              <ape_test_cost/>
-              <ape_treat_cost/>
-              <hf_attend/>
-              <hf_trav_cost/>
-              <hf_trav_time/>
-              <hf_cons_cost/>
-              <hf_test_cost/>
-              <hf_treat_cost/>
-              <hospitalized/>
-              <hosp_days/>
-              <hosp_call_cost/>
-              <hosp_feed_cost/>
-              <hosp_trav_cost/>
-              <hosp_bill/>
-              <hosp_bill_cost/>
-              <txt2/>
-              <medcost/>
-              <txt3/>
-              <agriculture/>
-              <agriculture_time/>
-              <industry/>
-              <industry_time/>
-              <commercy/>
-              <commercy_time/>
-              <services/>
-              <services_time/>
-              <admin/>
-              <admin_time/>
-              <education_work/>
-              <education_work_time/>
-              <hosp_work/>
-              <hosp_work_time/>
-              <home_work/>
-              <home_work_time/>
-              <study/>
-              <rdperson_payment/>
-              <payment_value/>
-              <clinic_data>
-                <temp/>
-                <child_fever/>
-                <child_med/>
-                <anti_malaric/>
-                <especif/>
-                <child_vacin/>
-                <samples>
-                  <test_result/>
-                  <treat_follow/>
-                  <why_treatment/>
-                  <spec/>
-                </samples>
-              </clinic_data>
-            </cuid_malaria>
-          </main>
+          <hf_id/>
+          <hfw_name/>
+          <doq/>
+          <study/>
+          <gender/>
+          <locality/>
+          <neighborhood/>
+          <age/>
+          <diagnostics/>
+          <tdr/>
+          <tdr_res/>
+          <htz/>
+          <htz_res/>
+          <anti_malaric/>
+          <other_anti_malaric/>
+          <source/>
+          <intern_date/>
+          <discharge_date/>
+          <outcome/>
           <processed/>
           <meta>
             <instanceID/>
@@ -160,1667 +37,182 @@
       <bind jr:preload="property" jr:preloadParams="deviceid" nodeset="/COST_PCD/deviceid" type="string"/>
       <bind jr:preload="timestamp" jr:preloadParams="start" nodeset="/COST_PCD/start" type="dateTime"/>
       <bind jr:preload="timestamp" jr:preloadParams="end" nodeset="/COST_PCD/end" type="dateTime"/>
-      <bind nodeset="/COST_PCD/fw_id" required="true()" type="string"/>
-      <bind nodeset="/COST_PCD/fw_name" required="true()" type="string"/>
-      <bind constraint="(regex(., '^[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9]$'))" jr:constraintMsg="Formato XXX-XXXX-XXX" nodeset="/COST_PCD/family_id" required="true()" type="string"/>
-      <bind constraint=".&lt;=today()" nodeset="/COST_PCD/demografic/dob" required="true()" type="date"/>
-      <bind nodeset="/COST_PCD/demografic/gender" required="true()" type="select1"/>
-      <bind constraint=".&lt;=today()" jr:constraintMsg="A data não deve ser superior a data actual" nodeset="/COST_PCD/demografic/date_visit" required="true()" type="date"/>
-      <bind nodeset="/COST_PCD/demografic/consent" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/demografic/consent_whynot" relevant=" /COST_PCD/demografic/consent  = 1" type="string"/>
-      <bind nodeset="/COST_PCD/main" relevant=" /COST_PCD/demografic/consent  = 2"/>
-      <bind nodeset="/COST_PCD/main/txt" readonly="true()" type="string"/>
-      <bind nodeset="/COST_PCD/main/education" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/read" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/write" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/ocupation" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/mstatus" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/together" relevant=" /COST_PCD/main/mstatus  = 1" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/water" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/water_channel" relevant=" /COST_PCD/main/water  = 1" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/water_well" relevant=" /COST_PCD/main/water  = 2" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/waterloc" required="true()" type="select1"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/time_taken" relevant=" /COST_PCD/main/waterloc  = 3" required="true()" type="int"/>
-      <bind nodeset="/COST_PCD/main/watertreat" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/latrine" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/latrine_shared" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/wc_familyno" relevant=" /COST_PCD/main/latrine_shared  = 1" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/hh_appliance" required="true()" type="select"/>
-      <bind nodeset="/COST_PCD/main/fuel" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/alconfec" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/ground" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/roof" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/wall" required="true()" type="select1"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/rooms" required="true()" type="int"/>
-      <bind nodeset="/COST_PCD/main/posses" required="true()" type="select"/>
-      <bind nodeset="/COST_PCD/main/land_cultiv" required="true()" type="select1"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/land_cultiv_dim" relevant=" /COST_PCD/main/land_cultiv  = 1" required="true()" type="int"/>
-      <bind nodeset="/COST_PCD/main/animals" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/animal" relevant=" /COST_PCD/main/animals  = 1"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/animal/cattle" required="true()" type="int"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/animal/horse" required="true()" type="int"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/animal/coats" required="true()" type="int"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/animal/sheep" required="true()" type="int"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/animal/pigs" required="true()" type="int"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/animal/chick" required="true()" type="int"/>
-      <bind nodeset="/COST_PCD/main/bank_acc" type="select1"/>
-      <bind nodeset="/COST_PCD/main/malaria_control/spray" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/malaria_control/w_spray" relevant=" /COST_PCD/main/malaria_control/spray  = 2" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/malaria_control/spray_date" relevant=" /COST_PCD/main/malaria_control/spray  = 1" required="true()" type="date"/>
-      <bind nodeset="/COST_PCD/main/malaria_control/has_nets" required="true()" type="select1"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/malaria_control/nets" required="true()" type="int"/>
-      <bind nodeset="/COST_PCD/main/malaria_control/txt1" readonly="true()" type="string"/>
-      <bind calculate=" /COST_PCD/main/malaria_control/nets " nodeset="/COST_PCD/main/malaria_control/net_count" readonly="true()" type="string"/>
-      <bind nodeset="/COST_PCD/main/malaria_control/net/brand" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/malaria_control/net/specify" relevant=" /COST_PCD/main/malaria_control/net/brand  = 8" required="true()" type="string"/>
-      <bind nodeset="/COST_PCD/main/malaria_control/net/hole" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/malaria_control/net/location" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/malaria_control/net/acquisition" required="true()" type="select1"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/malaria_control/net/cost" relevant=" /COST_PCD/main/malaria_control/net/acquisition  = 1" required="true()" type="int"/>
-      <bind nodeset="/COST_PCD/main/malaria_control/net/host" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/malaria_control/net/sleepers" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/malaria_control/net/treatment" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/malaria_control/net/treatment_again" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/malaria_control/net/treatment_last" relevant=" /COST_PCD/main/malaria_control/net/treatment_again  = 1" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/malaria_control/net/wash" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/malaria_control/outs_sleep" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/malaria_control/out_sleep" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/malaria_control/osleepreason" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/malaria_control/undernet_sleep" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/malaria_control/undernet_sleeps" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/malaria_control/medidas" required="true()" type="select1"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/malaria_control/custotech" relevant=" /COST_PCD/main/malaria_control/medidas  = 1 or  /COST_PCD/main/malaria_control/medidas  = 2 or  /COST_PCD/main/malaria_control/medidas  = 3" required="true()" type="int"/>
-      <bind constraint="(regex(., '^[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-[0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]$'))" jr:constraintMsg="Formato XXX-XXXX-XXX-XXXX" nodeset="/COST_PCD/main/cuid_malaria/perm_id" required="true()" type="string"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/had_malaria" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/dsickness" relevant=" /COST_PCD/main/cuid_malaria/had_malaria  = 1" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/diagnostic" relevant=" /COST_PCD/main/cuid_malaria/had_malaria  = 1" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/healer" relevant=" /COST_PCD/main/cuid_malaria/had_malaria  = 1" required="true()" type="select1"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/healer_cons_cost" relevant=" /COST_PCD/main/cuid_malaria/had_malaria  = 1 and  /COST_PCD/main/cuid_malaria/healer  = 1" required="true()" type="int"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/healer_visit_nr" relevant=" /COST_PCD/main/cuid_malaria/had_malaria  = 1 and  /COST_PCD/main/cuid_malaria/healer  = 1" required="true()" type="int"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/healer_mater_cost" relevant=" /COST_PCD/main/cuid_malaria/had_malaria  = 1 and  /COST_PCD/main/cuid_malaria/healer  = 1" required="true()" type="int"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/healer_trav_cost" relevant=" /COST_PCD/main/cuid_malaria/had_malaria  = 1 and  /COST_PCD/main/cuid_malaria/healer  = 1" required="true()" type="int"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/ape_search" required="true()" type="select1"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/ape_cons_cost" relevant=" /COST_PCD/main/cuid_malaria/ape_search  =1" required="true()" type="int"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/ape_test_cost" relevant=" /COST_PCD/main/cuid_malaria/ape_search  =1" required="true()" type="int"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/ape_treat_cost" relevant=" /COST_PCD/main/cuid_malaria/ape_search  =1" required="true()" type="int"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/hf_attend" required="true()" type="select1"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/hf_trav_cost" relevant=" /COST_PCD/main/cuid_malaria/hf_attend  = 1" required="true()" type="int"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/hf_trav_time" relevant=" /COST_PCD/main/cuid_malaria/hf_attend  = 1" required="true()" type="int"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/hf_cons_cost" relevant=" /COST_PCD/main/cuid_malaria/hf_attend  = 1" required="true()" type="int"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/hf_test_cost" relevant=" /COST_PCD/main/cuid_malaria/hf_attend  = 1" required="true()" type="int"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/hf_treat_cost" relevant=" /COST_PCD/main/cuid_malaria/hf_attend  = 1" required="true()" type="int"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/hospitalized" required="true()" type="select1"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/hosp_days" relevant=" /COST_PCD/main/cuid_malaria/hospitalized =1" required="true()" type="int"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/hosp_call_cost" relevant=" /COST_PCD/main/cuid_malaria/hospitalized =1" required="true()" type="int"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/hosp_feed_cost" relevant=" /COST_PCD/main/cuid_malaria/hospitalized =1" required="true()" type="int"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/hosp_trav_cost" relevant=" /COST_PCD/main/cuid_malaria/hospitalized =1" required="true()" type="int"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/hosp_bill" relevant=" /COST_PCD/main/cuid_malaria/hospitalized =1" required="true()" type="string"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/hosp_bill_cost" relevant=" /COST_PCD/main/cuid_malaria/hospitalized =1" required="true()" type="int"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/txt2" readonly="true()" type="string"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/medcost" type="int"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/txt3" readonly="true()" type="string"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/agriculture" required="true()" type="select1"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/agriculture_time" relevant=" /COST_PCD/main/cuid_malaria/agriculture  = 1" required="true()" type="int"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/industry" required="true()" type="select1"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/industry_time" relevant=" /COST_PCD/main/cuid_malaria/industry  = 1" required="true()" type="int"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/commercy" required="true()" type="select1"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/commercy_time" relevant=" /COST_PCD/main/cuid_malaria/commercy  = 1" required="true()" type="int"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/services" required="true()" type="select1"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/services_time" relevant=" /COST_PCD/main/cuid_malaria/services  = 1" required="true()" type="int"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/admin" required="true()" type="select1"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/admin_time" relevant=" /COST_PCD/main/cuid_malaria/admin  = 1" required="true()" type="int"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/education_work" required="true()" type="select1"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/education_work_time" relevant=" /COST_PCD/main/cuid_malaria/education_work  = 1" required="true()" type="int"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/hosp_work" required="true()" type="select1"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/hosp_work_time" relevant=" /COST_PCD/main/cuid_malaria/hosp_work  = 1" required="true()" type="int"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/home_work" required="true()" type="select1"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/home_work_time" relevant=" /COST_PCD/main/cuid_malaria/home_work  = 1" required="true()" type="int"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/study" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/rdperson_payment" required="true()" type="select1"/>
-      <bind constraint="(. &gt;=0) or (. = -99)" nodeset="/COST_PCD/main/cuid_malaria/payment_value" required="true()" type="int"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/clinic_data/temp" required="true()" type="decimal"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/clinic_data/child_fever" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/clinic_data/child_med" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/clinic_data/anti_malaric" relevant=" /COST_PCD/main/cuid_malaria/clinic_data/child_med  = 1" required="true()" type="select"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/clinic_data/especif" relevant=" /COST_PCD/main/cuid_malaria/clinic_data/anti_malaric  = 7" required="true()" type="string"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/clinic_data/child_vacin" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/clinic_data/samples/test_result" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/clinic_data/samples/treat_follow" relevant=" /COST_PCD/main/cuid_malaria/clinic_data/samples/test_result  = 1" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/clinic_data/samples/why_treatment" relevant=" /COST_PCD/main/cuid_malaria/clinic_data/samples/treat_follow  = 2" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/main/cuid_malaria/clinic_data/samples/spec" relevant=" /COST_PCD/main/cuid_malaria/clinic_data/samples/why_treatment  = 3" required="true()" type="string"/>
+      <bind constraint="regex(., '^[0-9][0-9][0-9][0-9]$')" jr:constraintMsg="Apenas 4 digitos" nodeset="/COST_PCD/hf_id" required="true()" type="string"/>
+      <bind constraint="regex(., '^[0-9][0-9][0-9][0-9]$')" jr:constraintMsg="Apenas 4 digitos" nodeset="/COST_PCD/hfw_name" required="true()" type="string"/>
+      <bind constraint=".&lt;=today()" nodeset="/COST_PCD/doq" required="true()" type="date"/>
+      <bind nodeset="/COST_PCD/study" required="true()" type="string"/>
+      <bind nodeset="/COST_PCD/gender" required="true()" type="select1"/>
+      <bind nodeset="/COST_PCD/locality" required="true()" type="string"/>
+      <bind nodeset="/COST_PCD/neighborhood" required="true()" type="string"/>
+      <bind nodeset="/COST_PCD/age" required="true()" type="select1"/>
+      <bind nodeset="/COST_PCD/diagnostics" required="true()" type="select1"/>
+      <bind nodeset="/COST_PCD/tdr" required="true()" type="select1"/>
+      <bind nodeset="/COST_PCD/tdr_res" relevant=" /COST_PCD/tdr =1" required="true()" type="select1"/>
+      <bind nodeset="/COST_PCD/htz" required="true()" type="select1"/>
+      <bind nodeset="/COST_PCD/htz_res" relevant=" /COST_PCD/htz =1" required="true()" type="select1"/>
+      <bind nodeset="/COST_PCD/anti_malaric" required="true()" type="select1"/>
+      <bind nodeset="/COST_PCD/other_anti_malaric" required="true()" type="select1"/>
+      <bind nodeset="/COST_PCD/source" required="true()" type="select1"/>
+      <bind constraint=".&lt;=today()" nodeset="/COST_PCD/intern_date" required="true()" type="date"/>
+      <bind constraint=".&gt;= /COST_PCD/intern_date " nodeset="/COST_PCD/discharge_date" required="true()" type="date"/>
+      <bind nodeset="/COST_PCD/outcome" required="true()" type="select1"/>
       <bind nodeset="/COST_PCD/processed" readonly="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/COST_PCD/meta/instanceID" readonly="true()" type="string"/>
-      <bind calculate="concat(&quot;COST_PCD-&quot;, /COST_PCD/main/cuid_malaria/perm_id )" nodeset="/COST_PCD/meta/instanceName" type="string"/>
+      <bind calculate="concat(&quot;COST_PCD-&quot;, /COST_PCD/hf_id )" nodeset="/COST_PCD/meta/instanceName" type="string"/>
     </model>
   </h:head>
   <h:body>
-    <input ref="/COST_PCD/fw_id">
+    <input ref="/COST_PCD/hf_id">
       <label>Código do Inquiridor</label>
+      <hint>formato XXXX</hint>
     </input>
-    <input ref="/COST_PCD/fw_name">
+    <input ref="/COST_PCD/hfw_name">
       <label>Nome do Inquiridor</label>
+      <hint>formato XXXX</hint>
     </input>
-    <input ref="/COST_PCD/family_id">
-      <label>1. Número do Agregado</label>
-      <hint>formato XXX-XXXX-XXX</hint>
+    <input ref="/COST_PCD/doq">
+      <label>Data</label>
     </input>
-    <group ref="/COST_PCD/demografic">
-      <label>INFORMAÇÃO SOCIO-DEMOGRAFICA DO ENTREVISTADO</label>
-      <input ref="/COST_PCD/demografic/dob">
-        <label>2. Data de Nascimento</label>
-      </input>
-      <select1 ref="/COST_PCD/demografic/gender">
-        <label>3. Sexo</label>
-        <item>
-          <label>Masculino</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>Feminino</label>
-          <value>2</value>
-        </item>
-      </select1>
-      <input ref="/COST_PCD/demografic/date_visit">
-        <label>4. Data da Visita</label>
-      </input>
-      <select1 ref="/COST_PCD/demografic/consent">
-        <label>5. Assinou o consentimento Informado?</label>
-        <item>
-          <label>Sim</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>Não</label>
-          <value>2</value>
-        </item>
-      </select1>
-      <input ref="/COST_PCD/demografic/consent_whynot">
-        <label>6. Se não, porquê</label>
-      </input>
-    </group>
-    <group ref="/COST_PCD/main">
-      <label>PRIMEIRA VISITA DE DETECÇÃO ACTIVA DE CASOS - DADOS SOCIO-ECONÓMICOS</label>
-      <input ref="/COST_PCD/main/txt">
-        <label>Dados do pai ou mãe/cuidador * Se está ausente deixa um convite (Convite impresso)</label>
-      </input>
-      <select1 ref="/COST_PCD/main/education">
-        <label>7. Nivel Academico</label>
-        <item>
-          <label>Alfabetização</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>EP1</label>
-          <value>2</value>
-        </item>
-        <item>
-          <label>EP2</label>
-          <value>3</value>
-        </item>
-        <item>
-          <label>ESG1</label>
-          <value>4</value>
-        </item>
-        <item>
-          <label>ESG2</label>
-          <value>5</value>
-        </item>
-        <item>
-          <label>Pre-basico elementar</label>
-          <value>6</value>
-        </item>
-        <item>
-          <label>Tecnico basico</label>
-          <value>7</value>
-        </item>
-        <item>
-          <label>Tecnico Medio</label>
-          <value>8</value>
-        </item>
-        <item>
-          <label>Formado como professor da primaria</label>
-          <value>9</value>
-        </item>
-        <item>
-          <label>Superior</label>
-          <value>10</value>
-        </item>
-      </select1>
-      <select1 ref="/COST_PCD/main/read">
-        <label>8. Sabe ler?</label>
-        <item>
-          <label>Sim</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>Não</label>
-          <value>2</value>
-        </item>
-        <item>
-          <label>Não responde</label>
-          <value>3</value>
-        </item>
-      </select1>
-      <select1 ref="/COST_PCD/main/write">
-        <label>9. Sabe Escrever?</label>
-        <item>
-          <label>Sim</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>Não</label>
-          <value>2</value>
-        </item>
-        <item>
-          <label>Não responde</label>
-          <value>3</value>
-        </item>
-      </select1>
-      <select1 ref="/COST_PCD/main/ocupation">
-        <label>10. Ocupação do chefe da familia:</label>
-        <hint>'NA' se não é aplicavel</hint>
-        <item>
-          <label>Doméstico</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>Agricultor</label>
-          <value>2</value>
-        </item>
-        <item>
-          <label>Agricultor remunerado</label>
-          <value>3</value>
-        </item>
-        <item>
-          <label>Estudante</label>
-          <value>4</value>
-        </item>
-        <item>
-          <label>Comerciante</label>
-          <value>5</value>
-        </item>
-        <item>
-          <label>Provedor de serviços</label>
-          <value>6</value>
-        </item>
-        <item>
-          <label>Outro</label>
-          <value>7</value>
-        </item>
-        <item>
-          <label>NA</label>
-          <value>8</value>
-        </item>
-      </select1>
-      <select1 ref="/COST_PCD/main/mstatus">
-        <label>11. Estado civil dos pais/cuidador</label>
-        <item>
-          <label>Casados ou em união de facto</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>Solteiro(a)</label>
-          <value>2</value>
-        </item>
-        <item>
-          <label>Separado(a)/Divorciado(a)</label>
-          <value>3</value>
-        </item>
-        <item>
-          <label>Viúvo(a)</label>
-          <value>4</value>
-        </item>
-        <item>
-          <label>Nunca casou ou viveu conjugalmente</label>
-          <value>5</value>
-        </item>
-      </select1>
-      <select1 ref="/COST_PCD/main/together">
-        <label>12. Se for casado mora com o seu parceiro?</label>
-        <item>
-          <label>Sim</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>Não</label>
-          <value>2</value>
-        </item>
-        <item>
-          <label>Ocasionalmente</label>
-          <value>3</value>
-        </item>
-      </select1>
-      <select1 ref="/COST_PCD/main/water">
-        <label>13. Qual é a principal fonte de água de consumo da familia?</label>
-        <item>
-          <label>Agua Canalizada</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>Poço cavado</label>
-          <value>2</value>
-        </item>
-        <item>
-          <label>Agua de Chuva</label>
-          <value>3</value>
-        </item>
-        <item>
-          <label>Camião tanque</label>
-          <value>4</value>
-        </item>
-        <item>
-          <label>Água da superficie (Lago/lagoa/riacho/canal)</label>
-          <value>5</value>
-        </item>
-        <item>
-          <label>Água engarrafada</label>
-          <value>6</value>
-        </item>
-        <item>
-          <label>Outro</label>
-          <value>7</value>
-        </item>
-      </select1>
-      <select1 ref="/COST_PCD/main/water_channel">
-        <label>13. Local da Água canalizada</label>
-        <item>
-          <label>Canalizada dentro da vivenda</label>
-          <value>11</value>
-        </item>
-        <item>
-          <label>Canalizada para o quintal</label>
-          <value>12</value>
-        </item>
-        <item>
-          <label>Casa do vizinho</label>
-          <value>13</value>
-        </item>
-        <item>
-          <label>Torneira pública/fontenaria</label>
-          <value>14</value>
-        </item>
-      </select1>
-      <select1 ref="/COST_PCD/main/water_well">
-        <label>13. Tipo de Poco</label>
-        <item>
-          <label>Poço protegido</label>
-          <value>21</value>
-        </item>
-        <item>
-          <label>Poço desprotegido</label>
-          <value>22</value>
-        </item>
-        <item>
-          <label>Furo com bomba manual</label>
-          <value>23</value>
-        </item>
-      </select1>
-      <select1 ref="/COST_PCD/main/waterloc">
-        <label>14. Onde esta localizada a fonte de água?</label>
-        <item>
-          <label>Na própria vivenda</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>No próprio quintal</label>
-          <value>2</value>
-        </item>
-        <item>
-          <label>Em outro lugar</label>
-          <value>3</value>
-        </item>
-      </select1>
-      <input appearance="field-list" ref="/COST_PCD/main/time_taken">
-        <label>15. Se esta fora do quintal, quanto tempo, de ida e volta, leva para ir buscar a agua?</label>
-        <hint>Digite -99 se nao sabe</hint>
-      </input>
-      <select1 ref="/COST_PCD/main/watertreat">
-        <label>16. Faz alguma coisa para tornar a água mais potável para o consumo?</label>
-        <item>
-          <label>Sim</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>Não</label>
-          <value>2</value>
-        </item>
-        <item>
-          <label>Não sabe</label>
-          <value>3</value>
-        </item>
-      </select1>
-      <select1 ref="/COST_PCD/main/latrine">
-        <label>17. Qual é o tipo de latrina que a familia usa?</label>
-        <item>
-          <label>Sanita</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>Sem sanita</label>
-          <value>2</value>
-        </item>
-        <item>
-          <label>Latrina melhorada</label>
-          <value>3</value>
-        </item>
-        <item>
-          <label>Latrina tradicional melhorada</label>
-          <value>4</value>
-        </item>
-        <item>
-          <label>Sem latrina melhorada</label>
-          <value>5</value>
-        </item>
-        <item>
-          <label>Sem latrina / no mato</label>
-          <value>6</value>
-        </item>
-        <item>
-          <label>Outro</label>
-          <value>7</value>
-        </item>
-      </select1>
-      <select1 ref="/COST_PCD/main/latrine_shared">
-        <label>18. Compartilham a latrina com outras familias?</label>
-        <item>
-          <label>Sim</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>Não</label>
-          <value>2</value>
-        </item>
-        <item>
-          <label>Não sabe</label>
-          <value>3</value>
-        </item>
-      </select1>
-      <select1 ref="/COST_PCD/main/wc_familyno">
-        <label>19. Quantas familias usam essa latrina?</label>
-        <item>
-          <label>Menor 5</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>5 ou mais</label>
-          <value>2</value>
-        </item>
-        <item>
-          <label>10 ou mais</label>
-          <value>3</value>
-        </item>
-        <item>
-          <label>Não sabe</label>
-          <value>4</value>
-        </item>
-      </select1>
-      <select ref="/COST_PCD/main/hh_appliance">
-        <label>20. A sua familia tem os seguintes electrodomésticos:</label>
-        <hint>Marque todos que se aplicam</hint>
-        <item>
-          <label>Energia electrica</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>Radio</label>
-          <value>2</value>
-        </item>
-        <item>
-          <label>Televisão</label>
-          <value>3</value>
-        </item>
-        <item>
-          <label>Telemovel</label>
-          <value>4</value>
-        </item>
-        <item>
-          <label>Sem telemovel</label>
-          <value>5</value>
-        </item>
-        <item>
-          <label>Frigorifico</label>
-          <value>6</value>
-        </item>
-      </select>
-      <select1 ref="/COST_PCD/main/fuel">
-        <label>21. Qual é o principal combustível que a sua familia usa para confecionar os alimentos?</label>
-        <item>
-          <label>Energia electrica</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>Gás natural</label>
-          <value>2</value>
-        </item>
-        <item>
-          <label>Gás de petróleo liquifeito</label>
-          <value>3</value>
-        </item>
-        <item>
-          <label>Carvão</label>
-          <value>4</value>
-        </item>
-        <item>
-          <label>Carvão vegetal</label>
-          <value>5</value>
-        </item>
-        <item>
-          <label>Lenha</label>
-          <value>6</value>
-        </item>
-        <item>
-          <label>Estrume de animais</label>
-          <value>7</value>
-        </item>
-        <item>
-          <label>Não cozinha em casa</label>
-          <value>8</value>
-        </item>
-        <item>
-          <label>Outro</label>
-          <value>9</value>
-        </item>
-      </select1>
-      <select1 ref="/COST_PCD/main/alconfec">
-        <label>22. Onde é que a familia geralmente confeciona os alimentos?</label>
-        <item>
-          <label>Dentro da casa</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>No outro edificio</label>
-          <value>2</value>
-        </item>
-        <item>
-          <label>Ar livre</label>
-          <value>3</value>
-        </item>
-        <item>
-          <label>Outro</label>
-          <value>4</value>
-        </item>
-      </select1>
-      <select1 ref="/COST_PCD/main/ground">
-        <label>23. Por favor, indique o material que compõe o chão da casa principal.</label>
-        <item>
-          <label>Terra batida</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>Não terra batida</label>
-          <value>2</value>
-        </item>
-        <item>
-          <label>Madeira rudimentar</label>
-          <value>3</value>
-        </item>
-        <item>
-          <label>Adobe</label>
-          <value>4</value>
-        </item>
-        <item>
-          <label>Parquet ou madeira serrada</label>
-          <value>5</value>
-        </item>
-        <item>
-          <label>Azulejo</label>
-          <value>6</value>
-        </item>
-        <item>
-          <label>Cimento</label>
-          <value>7</value>
-        </item>
-        <item>
-          <label>Outro</label>
-          <value>8</value>
-        </item>
-      </select1>
-      <select1 ref="/COST_PCD/main/roof">
-        <label>24. Por favor, indique o material que compõe o telhado da casa principal.</label>
-        <item>
-          <label>Sem telhado / descoberto</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>Capim / colmo / palmeira</label>
-          <value>2</value>
-        </item>
-        <item>
-          <label>Chapas de zinco</label>
-          <value>3</value>
-        </item>
-        <item>
-          <label>Folhas de fibrocimento</label>
-          <value>4</value>
-        </item>
-        <item>
-          <label>Azulejo</label>
-          <value>5</value>
-        </item>
-        <item>
-          <label>Lajes de concreto</label>
-          <value>6</value>
-        </item>
-        <item>
-          <label>Outro</label>
-          <value>7</value>
-        </item>
-      </select1>
-      <select1 ref="/COST_PCD/main/wall">
-        <label>25. Por favor, indique o material que compõe as paredes da casa principal.</label>
-        <item>
-          <label>Sem paredes</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>Caniço / paus / bambu / palmeira</label>
-          <value>2</value>
-        </item>
-        <item>
-          <label>Latão / papelão / papel / sacos</label>
-          <value>3</value>
-        </item>
-        <item>
-          <label>Paus maticados de areia</label>
-          <value>4</value>
-        </item>
-        <item>
-          <label>Casca de árvore</label>
-          <value>5</value>
-        </item>
-        <item>
-          <label>Madeira / zinco</label>
-          <value>6</value>
-        </item>
-        <item>
-          <label>Tijolos de argila</label>
-          <value>7</value>
-        </item>
-        <item>
-          <label>Azuleijo</label>
-          <value>8</value>
-        </item>
-        <item>
-          <label>Blocos de cimento</label>
-          <value>9</value>
-        </item>
-        <item>
-          <label>Outro</label>
-          <value>10</value>
-        </item>
-      </select1>
-      <input ref="/COST_PCD/main/rooms">
-        <label>26. Quantos quartos sao usados para dormir?</label>
-        <hint>Digite -99 se nao sabe</hint>
-      </input>
-      <select ref="/COST_PCD/main/posses">
-        <label>27. Algum membro da familia possui o seguinte:</label>
-        <hint>Marque tudo que se aplica</hint>
-        <item>
-          <label>Relógio?</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>Bicicleta?</label>
-          <value>2</value>
-        </item>
-        <item>
-          <label>Motorizada ou motocicleta?</label>
-          <value>3</value>
-        </item>
-        <item>
-          <label>Carro de tracção  animal?</label>
-          <value>4</value>
-        </item>
-        <item>
-          <label>Veiculo ligeiro ou caminhão?</label>
-          <value>5</value>
-        </item>
-        <item>
-          <label>Barco a motor?</label>
-          <value>6</value>
-        </item>
-      </select>
-      <select1 ref="/COST_PCD/main/land_cultiv">
-        <label>28. A familia possui alguma terra para cultivo?</label>
-        <item>
-          <label>Sim</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>Não</label>
-          <value>2</value>
-        </item>
-        <item>
-          <label>Não sabe</label>
-          <value>3</value>
-        </item>
-      </select1>
-      <input ref="/COST_PCD/main/land_cultiv_dim">
-        <label>29. Quantos hectares de terra arável a familia possui?</label>
-        <hint>Se for mais de 95, escreva 95. Se não conhece, escreva -99</hint>
-      </input>
-      <select1 ref="/COST_PCD/main/animals">
-        <label>30. Esta familia possui gado, rebanhos, outros animais de campo ou aves de capoeira?</label>
-        <item>
-          <label>Sim</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>Não</label>
-          <value>2</value>
-        </item>
-        <item>
-          <label>Não sabe</label>
-          <value>3</value>
-        </item>
-      </select1>
-      <group ref="/COST_PCD/main/animal">
-        <label>31. DOS SEGUINTES ANIMAIS, QUANTOS POSSUEM ESSA VIVENDA?</label>
-        <input ref="/COST_PCD/main/animal/cattle">
-          <label>Gado</label>
-          <hint>Digite -99 se nao sabe</hint>
-        </input>
-        <input ref="/COST_PCD/main/animal/horse">
-          <label>Cavalos, burros ou mulas</label>
-          <hint>Digite -99 se nao sabe</hint>
-        </input>
-        <input ref="/COST_PCD/main/animal/coats">
-          <label>Cabras</label>
-          <hint>Digite -99 se nao sabe</hint>
-        </input>
-        <input ref="/COST_PCD/main/animal/sheep">
-          <label>Ovelhas</label>
-          <hint>Digite -99 se nao sabe</hint>
-        </input>
-        <input ref="/COST_PCD/main/animal/pigs">
-          <label>Porcos</label>
-          <hint>Digite -99 se nao sabe</hint>
-        </input>
-        <input ref="/COST_PCD/main/animal/chick">
-          <label>Galinhas</label>
-          <hint>Digite -99 se nao sabe</hint>
-        </input>
-      </group>
-      <select1 ref="/COST_PCD/main/bank_acc">
-        <label>32. Algum membro da familia tem conta bancaria?</label>
-        <item>
-          <label>Sim</label>
-          <value>1</value>
-        </item>
-        <item>
-          <label>Não</label>
-          <value>2</value>
-        </item>
-        <item>
-          <label>Não sabe</label>
-          <value>3</value>
-        </item>
-      </select1>
-      <group ref="/COST_PCD/main/malaria_control">
-        <label>CONTROLO DA MALÁRIA</label>
-        <select1 ref="/COST_PCD/main/malaria_control/spray">
-          <label>33. Esta casa foi pulverizada nos últimos 12 meses?</label>
-          <item>
-            <label>Sim</label>
-            <value>1</value>
-          </item>
-          <item>
-            <label>Não</label>
-            <value>2</value>
-          </item>
-          <item>
-            <label>Não sabe</label>
-            <value>3</value>
-          </item>
-        </select1>
-        <select1 ref="/COST_PCD/main/malaria_control/w_spray">
-          <label>34. Porquê?</label>
-          <item>
-            <label>A equipe não veio</label>
-            <value>1</value>
-          </item>
-          <item>
-            <label>Ninguém estava em casa</label>
-            <value>2</value>
-          </item>
-          <item>
-            <label>Recusou</label>
-            <value>3</value>
-          </item>
-          <item>
-            <label>Não sabe/outros</label>
-            <value>4</value>
-          </item>
-        </select1>
-        <input ref="/COST_PCD/main/malaria_control/spray_date">
-          <label>35. Data da última pulverização</label>
-          <hint>Se nao sabe, preencha com 01-01-2001</hint>
-        </input>
-        <select1 ref="/COST_PCD/main/malaria_control/has_nets">
-          <label>36. A casa tem redes mosquiteiras que usam quando dormen?</label>
-          <item>
-            <label>Sim</label>
-            <value>1</value>
-          </item>
-          <item>
-            <label>Não</label>
-            <value>2</value>
-          </item>
-        </select1>
-        <input ref="/COST_PCD/main/malaria_control/nets">
-          <label>37. Quantas redes?</label>
-          <hint>Digite -99 se nao sabe</hint>
-        </input>
-        <input ref="/COST_PCD/main/malaria_control/txt1">
-          <label>POR FAVOR, PEÇA AO PAI OU MÃE/CUIDADOR PARA LHE MOSTRAR TODAS AS REDES DA CASA.</label>
-        </input>
-        <group ref="/COST_PCD/main/malaria_control/net">
-          <label>REPITA AS PERGUNTAS 39-49 PARA CADA REDE</label>
-          <repeat jr:count=" /COST_PCD/main/malaria_control/net_count " nodeset="/COST_PCD/main/malaria_control/net">
-            <select1 ref="/COST_PCD/main/malaria_control/net/brand">
-              <label>38. Observe o tipo de marca da rede mosquiteira:</label>
-              <item>
-                <label>Olyset</label>
-                <value>1</value>
-              </item>
-              <item>
-                <label>PermaNet</label>
-                <value>2</value>
-              </item>
-              <item>
-                <label>Netprotect</label>
-                <value>3</value>
-              </item>
-              <item>
-                <label>Duranet</label>
-                <value>4</value>
-              </item>
-              <item>
-                <label>Interceptor</label>
-                <value>5</value>
-              </item>
-              <item>
-                <label>DawaPlus</label>
-                <value>6</value>
-              </item>
-              <item>
-                <label>Não sabe</label>
-                <value>7</value>
-              </item>
-              <item>
-                <label>Outro</label>
-                <value>8</value>
-              </item>
-            </select1>
-            <input ref="/COST_PCD/main/malaria_control/net/specify">
-              <label>Especifique</label>
-            </input>
-            <select1 ref="/COST_PCD/main/malaria_control/net/hole">
-              <label>39. Obseve a rede por todos os lados. Tem furos maiores do que a ponta do seu polegar?</label>
-              <item>
-                <label>Sim</label>
-                <value>1</value>
-              </item>
-              <item>
-                <label>Não</label>
-                <value>2</value>
-              </item>
-            </select1>
-            <select1 ref="/COST_PCD/main/malaria_control/net/location">
-              <label>40. Onde está a rede?</label>
-              <item>
-                <label>Pendurada, arrumado</label>
-                <value>1</value>
-              </item>
-              <item>
-                <label>Não pendurado, não arrumado</label>
-                <value>2</value>
-              </item>
-              <item>
-                <label>Não pendurado, mas acessivel</label>
-                <value>3</value>
-              </item>
-              <item>
-                <label>Não pendurado, e não acessivel</label>
-                <value>4</value>
-              </item>
-              <item>
-                <label>Outro</label>
-                <value>5</value>
-              </item>
-            </select1>
-            <select1 ref="/COST_PCD/main/malaria_control/net/acquisition">
-              <label>41. Como é que obteve a rede</label>
-              <item>
-                <label>Comprou</label>
-                <value>1</value>
-              </item>
-              <item>
-                <label>Campanha de distribuição na provincia/distrito</label>
-                <value>2</value>
-              </item>
-              <item>
-                <label>Campanha de vacinação</label>
-                <value>3</value>
-              </item>
-              <item>
-                <label>Na clinica</label>
-                <value>4</value>
-              </item>
-              <item>
-                <label>Não sabe</label>
-                <value>5</value>
-              </item>
-            </select1>
-            <input ref="/COST_PCD/main/malaria_control/net/cost">
-              <label>42. Se comprou, quanto custou?</label>
-              <hint>Digite -99 se nao sabe</hint>
-            </input>
-            <select1 ref="/COST_PCD/main/malaria_control/net/host">
-              <label>43. Quantos dormiram nessa rede na noite passada?</label>
-              <item>
-                <label>1</label>
-                <value>1</value>
-              </item>
-              <item>
-                <label>2</label>
-                <value>2</value>
-              </item>
-              <item>
-                <label>3</label>
-                <value>3</value>
-              </item>
-              <item>
-                <label>mais de 3</label>
-                <value>4</value>
-              </item>
-              <item>
-                <label>Não sabe</label>
-                <value>5</value>
-              </item>
-            </select1>
-            <select1 ref="/COST_PCD/main/malaria_control/net/sleepers">
-              <label>44. Quem dormiu nessa rede na noite passada?</label>
-              <item>
-                <label>Crianças</label>
-                <value>1</value>
-              </item>
-              <item>
-                <label>Adultos</label>
-                <value>2</value>
-              </item>
-              <item>
-                <label>Não sabe</label>
-                <value>3</value>
-              </item>
-            </select1>
-            <select1 ref="/COST_PCD/main/malaria_control/net/treatment">
-              <label>45. Quando adquiriu a rede ela tinha sido tratada com insecticida?</label>
-              <item>
-                <label>Sim</label>
-                <value>1</value>
-              </item>
-              <item>
-                <label>Não</label>
-                <value>2</value>
-              </item>
-              <item>
-                <label>Não sabe</label>
-                <value>3</value>
-              </item>
-            </select1>
-            <select1 ref="/COST_PCD/main/malaria_control/net/treatment_again">
-              <label>46. Voltou a tratar a rede novamente?</label>
-              <item>
-                <label>Sim</label>
-                <value>1</value>
-              </item>
-              <item>
-                <label>Não</label>
-                <value>2</value>
-              </item>
-              <item>
-                <label>Não sabe</label>
-                <value>3</value>
-              </item>
-            </select1>
-            <select1 ref="/COST_PCD/main/malaria_control/net/treatment_last">
-              <label>47. Se sim, quando foi a ultima vez?</label>
-              <item>
-                <label>Menos de 6 meses</label>
-                <value>1</value>
-              </item>
-              <item>
-                <label>6 a 12 meses</label>
-                <value>2</value>
-              </item>
-              <item>
-                <label>Mais de 1 ano</label>
-                <value>3</value>
-              </item>
-              <item>
-                <label>Não Sabe</label>
-                <value>4</value>
-              </item>
-            </select1>
-            <select1 ref="/COST_PCD/main/malaria_control/net/wash">
-              <label>48. Já lavou a rede desde que a obteve?</label>
-              <item>
-                <label>Sim</label>
-                <value>1</value>
-              </item>
-              <item>
-                <label>Não</label>
-                <value>2</value>
-              </item>
-            </select1>
-          </repeat>
-        </group>
-        <select1 ref="/COST_PCD/main/malaria_control/outs_sleep">
-          <label>49. Em geral, com que frequência a criança dorme ao ar livre durante a estação chuvosa?</label>
-          <item>
-            <label>Menos de uma vez por semana</label>
-            <value>1</value>
-          </item>
-          <item>
-            <label>Uma vez por semana</label>
-            <value>2</value>
-          </item>
-          <item>
-            <label>2 ou 3 vezes por semana</label>
-            <value>3</value>
-          </item>
-          <item>
-            <label>4 ou mais vezes por semana</label>
-            <value>4</value>
-          </item>
-          <item>
-            <label>Não sabe</label>
-            <value>5</value>
-          </item>
-        </select1>
-        <select1 ref="/COST_PCD/main/malaria_control/out_sleep">
-          <label>50. Em geral, com que frequência a criança dorme ao ar livre durante a estação seca?</label>
-          <item>
-            <label>Menos de uma vez por semana</label>
-            <value>1</value>
-          </item>
-          <item>
-            <label>Uma vez por semana</label>
-            <value>2</value>
-          </item>
-          <item>
-            <label>2 ou 3 vezes por semana</label>
-            <value>3</value>
-          </item>
-          <item>
-            <label>4 ou mais vezes por semana</label>
-            <value>4</value>
-          </item>
-          <item>
-            <label>Não sabe</label>
-            <value>5</value>
-          </item>
-        </select1>
-        <select1 ref="/COST_PCD/main/malaria_control/osleepreason">
-          <label>51. Se dorme no ar livre, qual é o motivo?</label>
-          <item>
-            <label>Calor</label>
-            <value>1</value>
-          </item>
-          <item>
-            <label>Outra razão</label>
-            <value>2</value>
-          </item>
-        </select1>
-        <select1 ref="/COST_PCD/main/malaria_control/undernet_sleep">
-          <label>52. Com que frequência a criança dorme debaixo da rede durante a estação chuvosa?</label>
-          <item>
-            <label>Menos de uma vez por semana</label>
-            <value>1</value>
-          </item>
-          <item>
-            <label>Uma vez por semana</label>
-            <value>2</value>
-          </item>
-          <item>
-            <label>2 ou 3 vezes por semana</label>
-            <value>3</value>
-          </item>
-          <item>
-            <label>4 ou mais vezes por semana</label>
-            <value>4</value>
-          </item>
-          <item>
-            <label>Não sabe</label>
-            <value>5</value>
-          </item>
-        </select1>
-        <select1 ref="/COST_PCD/main/malaria_control/undernet_sleeps">
-          <label>53. Com que frequência a criança dorme debaixo da rede durante a estação seca?</label>
-          <item>
-            <label>Menos de uma vez por semana</label>
-            <value>1</value>
-          </item>
-          <item>
-            <label>Uma vez por semana</label>
-            <value>2</value>
-          </item>
-          <item>
-            <label>2 ou 3 vezes por semana</label>
-            <value>3</value>
-          </item>
-          <item>
-            <label>4 ou mais vezes por semana</label>
-            <value>4</value>
-          </item>
-          <item>
-            <label>Não sabe</label>
-            <value>5</value>
-          </item>
-        </select1>
-        <select1 ref="/COST_PCD/main/malaria_control/medidas">
-          <label>54. Usou algumas das seguintes medidas durante a última semana?</label>
-          <item>
-            <label>Espirais</label>
-            <value>1</value>
-          </item>
-          <item>
-            <label>Repelentes</label>
-            <value>2</value>
-          </item>
-          <item>
-            <label>Insectticidas(baygon)</label>
-            <value>3</value>
-          </item>
-          <item>
-            <label>Nenhum</label>
-            <value>4</value>
-          </item>
-        </select1>
-        <input ref="/COST_PCD/main/malaria_control/custotech">
-          <label>55. Se sim, quanto pagou?</label>
-          <hint>&quot;000 &quot;se foi gratis</hint>
-        </input>
-      </group>
-      <group ref="/COST_PCD/main/cuid_malaria">
-        <label>CUIDADO DA MALÁRIA E DESPESAS RELACIONADAS</label>
-        <repeat nodeset="/COST_PCD/main/cuid_malaria">
-          <input ref="/COST_PCD/main/cuid_malaria/perm_id">
-            <label>Número de participante de estudo</label>
-            <hint>formato XXX-XXXX-XXX-XXXX</hint>
-          </input>
-          <select1 ref="/COST_PCD/main/cuid_malaria/had_malaria">
-            <label>57. A crianca teve malária nos últimos 30 dias?</label>
-            <item>
-              <label>Sim</label>
-              <value>1</value>
-            </item>
-            <item>
-              <label>Não</label>
-              <value>2</value>
-            </item>
-            <item>
-              <label>Não sabe</label>
-              <value>3</value>
-            </item>
-          </select1>
-          <select1 ref="/COST_PCD/main/cuid_malaria/dsickness">
-            <label>58. a) Quem ajudou a diagnosticar a doença da criança?</label>
-            <item>
-              <label>Curandeiro</label>
-              <value>1</value>
-            </item>
-            <item>
-              <label>Um parente experiente</label>
-              <value>2</value>
-            </item>
-            <item>
-              <label>Pessoal de saúde</label>
-              <value>3</value>
-            </item>
-            <item>
-              <label>Outro</label>
-              <value>4</value>
-            </item>
-          </select1>
-          <select1 ref="/COST_PCD/main/cuid_malaria/diagnostic">
-            <label>58. b) Como é que foi diagnosticado?</label>
-            <item>
-              <label>Exame médico</label>
-              <value>1</value>
-            </item>
-            <item>
-              <label>Febre</label>
-              <value>2</value>
-            </item>
-            <item>
-              <label>Outros sintomas</label>
-              <value>3</value>
-            </item>
-          </select1>
-          <select1 ref="/COST_PCD/main/cuid_malaria/healer">
-            <label>59. Procuram atendimento num curandeiro?</label>
-            <item>
-              <label>Sim</label>
-              <value>1</value>
-            </item>
-            <item>
-              <label>Não</label>
-              <value>2</value>
-            </item>
-            <item>
-              <label>Não sabe</label>
-              <value>3</value>
-            </item>
-          </select1>
-          <input ref="/COST_PCD/main/cuid_malaria/healer_cons_cost">
-            <label>60. Quanto é que custou a consulta?</label>
-            <hint>Digite -99 se nao sabe</hint>
-          </input>
-          <input ref="/COST_PCD/main/cuid_malaria/healer_visit_nr">
-            <label>61. Quantas vezes a sua familia visitou o curandeiro?</label>
-            <hint>Digite -99 se nao sabe</hint>
-          </input>
-          <input ref="/COST_PCD/main/cuid_malaria/healer_mater_cost">
-            <label>62. Quanto custaram os materiais?</label>
-            <hint>Digite -99 se nao sabe</hint>
-          </input>
-          <input ref="/COST_PCD/main/cuid_malaria/healer_trav_cost">
-            <label>63. Quanto custaram as despesas da viagem?(ida)</label>
-            <hint>Digite -99 se nao sabe</hint>
-          </input>
-          <select1 ref="/COST_PCD/main/cuid_malaria/ape_search">
-            <label>64. Procuraram atendimento no APE?</label>
-            <item>
-              <label>Sim</label>
-              <value>1</value>
-            </item>
-            <item>
-              <label>Não</label>
-              <value>2</value>
-            </item>
-            <item>
-              <label>Não sabe</label>
-              <value>3</value>
-            </item>
-          </select1>
-          <input ref="/COST_PCD/main/cuid_malaria/ape_cons_cost">
-            <label>65. Quanto custou a consulta?</label>
-            <hint>Digite -99 se nao sabe</hint>
-          </input>
-          <input ref="/COST_PCD/main/cuid_malaria/ape_test_cost">
-            <label>66. Quanto custou o teste?</label>
-            <hint>Digite -99 se nao sabe</hint>
-          </input>
-          <input ref="/COST_PCD/main/cuid_malaria/ape_treat_cost">
-            <label>67. Quanto custou o tratamento?</label>
-            <hint>Digite -99 se nao sabe</hint>
-          </input>
-          <select1 ref="/COST_PCD/main/cuid_malaria/hf_attend">
-            <label>68. Procuraram atendimento numa unidade sanitária?</label>
-            <item>
-              <label>Sim</label>
-              <value>1</value>
-            </item>
-            <item>
-              <label>Não</label>
-              <value>2</value>
-            </item>
-            <item>
-              <label>Não sabe</label>
-              <value>3</value>
-            </item>
-          </select1>
-          <input ref="/COST_PCD/main/cuid_malaria/hf_trav_cost">
-            <label>69. Quanto custaram as despesas da viagem? (ida)</label>
-            <hint>Digite -99 se nao sabe</hint>
-          </input>
-          <input ref="/COST_PCD/main/cuid_malaria/hf_trav_time">
-            <label>70. Quanto tempo demorou para chegar a Unidade Sanitaria? (minutos)</label>
-            <hint>Digite -99 se nao sabe</hint>
-          </input>
-          <input ref="/COST_PCD/main/cuid_malaria/hf_cons_cost">
-            <label>71. Quanto custou a consulta?</label>
-            <hint>Digite -99 se nao sabe</hint>
-          </input>
-          <input ref="/COST_PCD/main/cuid_malaria/hf_test_cost">
-            <label>72. Quanto custou o teste?</label>
-            <hint>Digite -99 se nao sabe</hint>
-          </input>
-          <input ref="/COST_PCD/main/cuid_malaria/hf_treat_cost">
-            <label>73. Quanto custou o tratamento?</label>
-            <hint>Digite -99 se nao sabe</hint>
-          </input>
-          <select1 ref="/COST_PCD/main/cuid_malaria/hospitalized">
-            <label>74. A criança chegou de ser hospitalizada?</label>
-            <item>
-              <label>Sim</label>
-              <value>1</value>
-            </item>
-            <item>
-              <label>Não</label>
-              <value>2</value>
-            </item>
-          </select1>
-          <input ref="/COST_PCD/main/cuid_malaria/hosp_days">
-            <label>75. Se sim, quantos dias?</label>
-            <hint>Digite -99 se nao sabe</hint>
-          </input>
-          <input ref="/COST_PCD/main/cuid_malaria/hosp_call_cost">
-            <label>76. Quanto é que gastaram em chamadas durante a hospitalização?</label>
-            <hint>Digite -99 se nao sabe</hint>
-          </input>
-          <input ref="/COST_PCD/main/cuid_malaria/hosp_feed_cost">
-            <label>77. Quanto é que gastaram em alimentação durante a hospitalização?</label>
-            <hint>Digite -99 se nao sabe</hint>
-          </input>
-          <input ref="/COST_PCD/main/cuid_malaria/hosp_trav_cost">
-            <label>78. Quanto custaram as despesas da viagem? (ida)</label>
-            <hint>Digite -99 se nao sabe</hint>
-          </input>
-          <input ref="/COST_PCD/main/cuid_malaria/hosp_bill">
-            <label>79. Alguma Outra despesa?</label>
-          </input>
-          <input ref="/COST_PCD/main/cuid_malaria/hosp_bill_cost">
-            <label>80. Qual foi o custo da tal despesa?</label>
-          </input>
-          <input ref="/COST_PCD/main/cuid_malaria/txt2">
-            <label>INDEPENDENTEMENTE DE TEREM VISITADO UM CURANDEIRO, UM APE OU UMA UNIDADE SANITARIA, PERGUNTE:</label>
-          </input>
-          <input ref="/COST_PCD/main/cuid_malaria/medcost">
-            <label>81. Quanto é que foi pago pelos medicamentos depois do participante ter voltado para casa?</label>
-          </input>
-          <input ref="/COST_PCD/main/cuid_malaria/txt3">
-            <label>ALGUÉM TEVE QUE CANCELAR ALGUMAS DAS SEGUINTES ACTIVIDADES POR CAUSA DA DOENÇA DA CRIANÇA?</label>
-          </input>
-          <select1 ref="/COST_PCD/main/cuid_malaria/agriculture">
-            <label>83. Agricultura, pesca, mineração</label>
-            <item>
-              <label>Sim</label>
-              <value>1</value>
-            </item>
-            <item>
-              <label>Não</label>
-              <value>2</value>
-            </item>
-          </select1>
-          <input ref="/COST_PCD/main/cuid_malaria/agriculture_time">
-            <label>Por favor, escreva o número de horas diárias perdidas para cada actividade durante o episódio da malária</label>
-            <hint>Digite -99 se nao sabe</hint>
-          </input>
-          <select1 ref="/COST_PCD/main/cuid_malaria/industry">
-            <label>84. Indústria alimentar ou outras indústrias</label>
-            <item>
-              <label>Sim</label>
-              <value>1</value>
-            </item>
-            <item>
-              <label>Não</label>
-              <value>2</value>
-            </item>
-          </select1>
-          <input ref="/COST_PCD/main/cuid_malaria/industry_time">
-            <label>Por favor, escreva o número de horas diárias perdidas para cada actividade durante o episódio da malária</label>
-            <hint>Digite -99 se nao sabe</hint>
-          </input>
-          <select1 ref="/COST_PCD/main/cuid_malaria/commercy">
-            <label>85. Comércio / Mercado</label>
-            <item>
-              <label>Sim</label>
-              <value>1</value>
-            </item>
-            <item>
-              <label>Não</label>
-              <value>2</value>
-            </item>
-          </select1>
-          <input ref="/COST_PCD/main/cuid_malaria/commercy_time">
-            <label>Por favor, escreva o número de horas diárias perdidas para cada actividade durante o episódio da malária</label>
-            <hint>Digite -99 se nao sabe</hint>
-          </input>
-          <select1 ref="/COST_PCD/main/cuid_malaria/services">
-            <label>86. Serviços (restaurantes, hotéis, etc.)</label>
-            <item>
-              <label>Sim</label>
-              <value>1</value>
-            </item>
-            <item>
-              <label>Não</label>
-              <value>2</value>
-            </item>
-          </select1>
-          <input ref="/COST_PCD/main/cuid_malaria/services_time">
-            <label>Por favor, escreva o número de horas diárias perdidas para cada actividade durante o episódio da malária</label>
-            <hint>Digite -99 se nao sabe</hint>
-          </input>
-          <select1 ref="/COST_PCD/main/cuid_malaria/admin">
-            <label>87. Administração pública e defesa</label>
-            <item>
-              <label>Sim</label>
-              <value>1</value>
-            </item>
-            <item>
-              <label>Não</label>
-              <value>2</value>
-            </item>
-          </select1>
-          <input ref="/COST_PCD/main/cuid_malaria/admin_time">
-            <label>Por favor, escreva o número de horas diárias perdidas para cada actividade durante o episódio da malária</label>
-            <hint>Digite -99 se nao sabe</hint>
-          </input>
-          <select1 ref="/COST_PCD/main/cuid_malaria/education_work">
-            <label>88. Trabalho na educação</label>
-            <item>
-              <label>Sim</label>
-              <value>1</value>
-            </item>
-            <item>
-              <label>Não</label>
-              <value>2</value>
-            </item>
-          </select1>
-          <input ref="/COST_PCD/main/cuid_malaria/education_work_time">
-            <label>Por favor, escreva o número de horas diárias perdidas para cada actividade durante o episódio da malária</label>
-            <hint>Digite -99 se nao sabe</hint>
-          </input>
-          <select1 ref="/COST_PCD/main/cuid_malaria/hosp_work">
-            <label>89. Trabalho em serviços sanitários e sociais</label>
-            <item>
-              <label>Sim</label>
-              <value>1</value>
-            </item>
-            <item>
-              <label>Não</label>
-              <value>2</value>
-            </item>
-          </select1>
-          <input ref="/COST_PCD/main/cuid_malaria/hosp_work_time">
-            <label>Por favor, escreva o número de horas diárias perdidas para cada actividade durante o episódio da malária</label>
-            <hint>Digite -99 se nao sabe</hint>
-          </input>
-          <select1 ref="/COST_PCD/main/cuid_malaria/home_work">
-            <label>90. Trabalho doméstico/cuidade de crianças</label>
-            <item>
-              <label>Sim</label>
-              <value>1</value>
-            </item>
-            <item>
-              <label>Não</label>
-              <value>2</value>
-            </item>
-          </select1>
-          <input ref="/COST_PCD/main/cuid_malaria/home_work_time">
-            <label>Por favor, escreva o número de horas diárias perdidas para cada actividade durante o episódio da malária</label>
-            <hint>Digite -99 se nao sabe</hint>
-          </input>
-          <select1 ref="/COST_PCD/main/cuid_malaria/study">
-            <label>91. Estudos</label>
-            <item>
-              <label>Sim</label>
-              <value>1</value>
-            </item>
-            <item>
-              <label>Não</label>
-              <value>2</value>
-            </item>
-          </select1>
-          <select1 ref="/COST_PCD/main/cuid_malaria/rdperson_payment">
-            <label>92. Teve que pagar alguém, fazer tais actividades, enquanto você cuidava do filho?</label>
-            <item>
-              <label>Sim</label>
-              <value>1</value>
-            </item>
-            <item>
-              <label>Não</label>
-              <value>2</value>
-            </item>
-          </select1>
-          <input ref="/COST_PCD/main/cuid_malaria/payment_value">
-            <label>93. Quanto é que pagou?</label>
-          </input>
-          <group ref="/COST_PCD/main/cuid_malaria/clinic_data">
-            <label>DADOS CLÍNICOS</label>
-            <input ref="/COST_PCD/main/cuid_malaria/clinic_data/temp">
-              <label>94. Temperatura axilar</label>
-            </input>
-            <select1 ref="/COST_PCD/main/cuid_malaria/clinic_data/child_fever">
-              <label>95. A criança teve febre nas últimas 48 horas?</label>
-              <item>
-                <label>Sim</label>
-                <value>1</value>
-              </item>
-              <item>
-                <label>Não</label>
-                <value>2</value>
-              </item>
-              <item>
-                <label>Não sabe</label>
-                <value>3</value>
-              </item>
-            </select1>
-            <select1 ref="/COST_PCD/main/cuid_malaria/clinic_data/child_med">
-              <label>96. A criança recebeu antimaláricos nos ultimos 30 dias?</label>
-              <item>
-                <label>Sim</label>
-                <value>1</value>
-              </item>
-              <item>
-                <label>Não</label>
-                <value>2</value>
-              </item>
-              <item>
-                <label>Não sabe</label>
-                <value>3</value>
-              </item>
-            </select1>
-            <select ref="/COST_PCD/main/cuid_malaria/clinic_data/anti_malaric">
-              <label>97. Se sim, qual?</label>
-              <hint>Se for criança verifique no cartão amarelo!</hint>
-              <item>
-                <label>CoArtem</label>
-                <value>1</value>
-              </item>
-              <item>
-                <label>Artesunato</label>
-                <value>2</value>
-              </item>
-              <item>
-                <label>Fansidar</label>
-                <value>3</value>
-              </item>
-              <item>
-                <label>Amodiaquina</label>
-                <value>4</value>
-              </item>
-              <item>
-                <label>Quinina</label>
-                <value>5</value>
-              </item>
-              <item>
-                <label>Não sabe</label>
-                <value>6</value>
-              </item>
-              <item>
-                <label>Outro</label>
-                <value>7</value>
-              </item>
-            </select>
-            <input ref="/COST_PCD/main/cuid_malaria/clinic_data/especif">
-              <label>Especifique</label>
-            </input>
-            <select1 ref="/COST_PCD/main/cuid_malaria/clinic_data/child_vacin">
-              <label>98. Essa criança recebeu todas as vacinas do Epl para sua idade?</label>
-              <item>
-                <label>Sim</label>
-                <value>1</value>
-              </item>
-              <item>
-                <label>Não</label>
-                <value>2</value>
-              </item>
-              <item>
-                <label>Não sabe</label>
-                <value>3</value>
-              </item>
-            </select1>
-            <group ref="/COST_PCD/main/cuid_malaria/clinic_data/samples">
-              <label>RECOLHA DE AMOSTRAS</label>
-              <select1 ref="/COST_PCD/main/cuid_malaria/clinic_data/samples/test_result">
-                <label>99. Resultados dos testes rápidos de malária</label>
-                <hint>Por favor, preencha o formulario de resultado do participante!</hint>
-                <item>
-                  <label>Positivo</label>
-                  <value>1</value>
-                </item>
-                <item>
-                  <label>Negativo</label>
-                  <value>2</value>
-                </item>
-                <item>
-                  <label>Inválido</label>
-                  <value>3</value>
-                </item>
-                <item>
-                  <label>Não feito</label>
-                  <value>4</value>
-                </item>
-              </select1>
-              <select1 ref="/COST_PCD/main/cuid_malaria/clinic_data/samples/treat_follow">
-                <label>100. Se o teste rápido de malária foi positivo, cumpriu de forma adequada com o tratamento?</label>
-                <item>
-                  <label>Sim</label>
-                  <value>1</value>
-                </item>
-                <item>
-                  <label>Não</label>
-                  <value>2</value>
-                </item>
-              </select1>
-              <select1 ref="/COST_PCD/main/cuid_malaria/clinic_data/samples/why_treatment">
-                <label>101. Se não, porquê?</label>
-                <item>
-                  <label>Recusou</label>
-                  <value>1</value>
-                </item>
-                <item>
-                  <label>O participante recebeu um tratamento completo de antimaláricos nos últimos 15 dias e desde então tem tido febre</label>
-                  <value>2</value>
-                </item>
-                <item>
-                  <label>Outro</label>
-                  <value>3</value>
-                </item>
-              </select1>
-              <input ref="/COST_PCD/main/cuid_malaria/clinic_data/samples/spec">
-                <label>Especifique</label>
-              </input>
-            </group>
-          </group>
-        </repeat>
-      </group>
-    </group>
+    <input ref="/COST_PCD/study">
+      <label>Estudo ID</label>
+    </input>
+    <select1 ref="/COST_PCD/gender">
+      <label>Sexo</label>
+      <item>
+        <label>Masculino</label>
+        <value>1</value>
+      </item>
+      <item>
+        <label>Feminino</label>
+        <value>2</value>
+      </item>
+    </select1>
+    <input ref="/COST_PCD/locality">
+      <label>Localidade</label>
+    </input>
+    <input ref="/COST_PCD/neighborhood">
+      <label>Bairro</label>
+    </input>
+    <select1 ref="/COST_PCD/age">
+      <label>Idade (anos)</label>
+      <item>
+        <label>0 a 4 anos</label>
+        <value>1</value>
+      </item>
+      <item>
+        <label>5 a 15 anos</label>
+        <value>2</value>
+      </item>
+      <item>
+        <label>&gt; 15 anos</label>
+        <value>3</value>
+      </item>
+    </select1>
+    <select1 ref="/COST_PCD/diagnostics">
+      <label>Diagnóstico</label>
+      <item>
+        <label>Malária</label>
+        <value>1</value>
+      </item>
+      <item>
+        <label>Não Malária</label>
+        <value>2</value>
+      </item>
+    </select1>
+    <select1 ref="/COST_PCD/tdr">
+      <label>Fez teste usando TDR?</label>
+      <item>
+        <label>Sim</label>
+        <value>1</value>
+      </item>
+      <item>
+        <label>Não</label>
+        <value>2</value>
+      </item>
+    </select1>
+    <select1 ref="/COST_PCD/tdr_res">
+      <label>Qual foi o resultado?</label>
+      <item>
+        <label>Positivo</label>
+        <value>1</value>
+      </item>
+      <item>
+        <label>Negativo</label>
+        <value>2</value>
+      </item>
+    </select1>
+    <select1 ref="/COST_PCD/htz">
+      <label>Fez teste usando HTZ?</label>
+      <item>
+        <label>Sim</label>
+        <value>1</value>
+      </item>
+      <item>
+        <label>Não</label>
+        <value>2</value>
+      </item>
+    </select1>
+    <select1 ref="/COST_PCD/htz_res">
+      <label>Qual foi o resultado?</label>
+      <item>
+        <label>Positivo</label>
+        <value>1</value>
+      </item>
+      <item>
+        <label>Negativo</label>
+        <value>2</value>
+      </item>
+    </select1>
+    <select1 ref="/COST_PCD/anti_malaric">
+      <label>Fez tratamento anti-malarico?</label>
+      <item>
+        <label>Sim</label>
+        <value>1</value>
+      </item>
+      <item>
+        <label>Não</label>
+        <value>2</value>
+      </item>
+    </select1>
+    <select1 ref="/COST_PCD/other_anti_malaric">
+      <label>Fez outro tratamento diferente do anti-malarico?</label>
+      <item>
+        <label>Sim</label>
+        <value>1</value>
+      </item>
+      <item>
+        <label>Não</label>
+        <value>2</value>
+      </item>
+    </select1>
+    <select1 ref="/COST_PCD/source">
+      <label>Regime</label>
+      <item>
+        <label>Externo</label>
+        <value>1</value>
+      </item>
+      <item>
+        <label>Hospitalizado</label>
+        <value>2</value>
+      </item>
+    </select1>
+    <input ref="/COST_PCD/intern_date">
+      <label>Data de Admissão</label>
+    </input>
+    <input ref="/COST_PCD/discharge_date">
+      <label>Data de alta</label>
+    </input>
+    <select1 ref="/COST_PCD/outcome">
+      <label>Resultado</label>
+      <item>
+        <label>Melhoria</label>
+        <value>1</value>
+      </item>
+      <item>
+        <label>Óbito</label>
+        <value>2</value>
+      </item>
+    </select1>
     <input ref="/COST_PCD/processed">
       <label>processed</label>
     </input>
