@@ -11,10 +11,9 @@
           <hf_id/>
           <hf_fw_id/>
           <visit_date/>
-          <study/>
           <gender/>
           <locality/>
-          <neighborhood/>
+          <village/>
           <age/>
           <diagnostics/>
           <tdr/>
@@ -37,13 +36,12 @@
       <bind jr:preload="property" jr:preloadParams="deviceid" nodeset="/COST_PCD/deviceid" type="string"/>
       <bind jr:preload="timestamp" jr:preloadParams="start" nodeset="/COST_PCD/start" type="dateTime"/>
       <bind jr:preload="timestamp" jr:preloadParams="end" nodeset="/COST_PCD/end" type="dateTime"/>
-      <bind constraint="regex(., '^[0-9][0-9][0-9][0-9]$')" jr:constraintMsg="Apenas 4 digitos" nodeset="/COST_PCD/hf_id" required="true()" type="string"/>
-      <bind constraint="regex(., '^[0-9][0-9][0-9][0-9]$')" jr:constraintMsg="Apenas 4 digitos" nodeset="/COST_PCD/hf_fw_id" required="true()" type="string"/>
+      <bind constraint="regex(., '^[0][0-9][0-9]$')" jr:constraintMsg="Apenas 3 digitos iniciando com zero" nodeset="/COST_PCD/hf_id" required="true()" type="string"/>
+      <bind constraint="regex(., '^[0-9][0-9][0-9]$')" jr:constraintMsg="Apenas 3 digitos" nodeset="/COST_PCD/hf_fw_id" required="true()" type="string"/>
       <bind constraint=".&lt;=today()" nodeset="/COST_PCD/visit_date" required="true()" type="date"/>
-      <bind nodeset="/COST_PCD/study" required="true()" type="string"/>
       <bind nodeset="/COST_PCD/gender" required="true()" type="select1"/>
-      <bind nodeset="/COST_PCD/locality" required="true()" type="string"/>
-      <bind nodeset="/COST_PCD/neighborhood" required="true()" type="string"/>
+      <bind constraint="regex(., '^[0-9][0-9][0-9]$')" nodeset="/COST_PCD/locality" required="true()" type="int"/>
+      <bind constraint="regex(., '^[7][0-9][0-9][0-9]$')" jr:constraintMsg="Apenas 4 digitos iniciando com sete" nodeset="/COST_PCD/village" required="true()" type="int"/>
       <bind nodeset="/COST_PCD/age" required="true()" type="select1"/>
       <bind nodeset="/COST_PCD/diagnostics" required="true()" type="select1"/>
       <bind nodeset="/COST_PCD/tdr" required="true()" type="select1"/>
@@ -53,9 +51,9 @@
       <bind nodeset="/COST_PCD/anti_malaric" required="true()" type="select1"/>
       <bind nodeset="/COST_PCD/other_anti_malaric" required="true()" type="select1"/>
       <bind nodeset="/COST_PCD/source" required="true()" type="select1"/>
-      <bind constraint=".&lt;=today()" nodeset="/COST_PCD/intern_date" required="true()" type="date"/>
-      <bind constraint=".&gt;= /COST_PCD/intern_date " nodeset="/COST_PCD/discharge_date" required="true()" type="date"/>
-      <bind nodeset="/COST_PCD/outcome" required="true()" type="select1"/>
+      <bind constraint=".&lt;=today()" jr:constraintMsg="A data de admissão deve menor ou igual a data de hoje" nodeset="/COST_PCD/intern_date" relevant=" /COST_PCD/source  = 2" required="true()" type="date"/>
+      <bind constraint=".&gt;= /COST_PCD/intern_date  and .&lt;=today()" jr:constraintMsg="A data de alta deve ser maior que data de admissão e menor ou igual a data de hoje" nodeset="/COST_PCD/discharge_date" relevant=" /COST_PCD/source  = 2" required="true()" type="date"/>
+      <bind nodeset="/COST_PCD/outcome" relevant=" /COST_PCD/source  = 2" required="true()" type="select1"/>
       <bind nodeset="/COST_PCD/processed" readonly="true()" type="int"/>
       <bind calculate="concat('uuid:', uuid())" nodeset="/COST_PCD/meta/instanceID" readonly="true()" type="string"/>
       <bind calculate="concat(&quot;COST_PCD-&quot;, /COST_PCD/hf_id )" nodeset="/COST_PCD/meta/instanceName" type="string"/>
@@ -64,17 +62,14 @@
   <h:body>
     <input ref="/COST_PCD/hf_id">
       <label>Código do Centro de Saúde</label>
-      <hint>formato XXXX</hint>
+      <hint>formato 0XX</hint>
     </input>
     <input ref="/COST_PCD/hf_fw_id">
       <label>Código do trabalhador sanitário</label>
-      <hint>formato XXXX</hint>
+      <hint>formato XXX</hint>
     </input>
     <input ref="/COST_PCD/visit_date">
       <label>Data</label>
-    </input>
-    <input ref="/COST_PCD/study">
-      <label>Estudo ID</label>
     </input>
     <select1 ref="/COST_PCD/gender">
       <label>Sexo</label>
@@ -89,9 +84,11 @@
     </select1>
     <input ref="/COST_PCD/locality">
       <label>Localidade</label>
+      <hint>formato XXX</hint>
     </input>
-    <input ref="/COST_PCD/neighborhood">
+    <input ref="/COST_PCD/village">
       <label>Bairro</label>
+      <hint>Formato 7XXX</hint>
     </input>
     <select1 ref="/COST_PCD/age">
       <label>Idade (anos)</label>
