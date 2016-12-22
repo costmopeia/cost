@@ -9,8 +9,8 @@
           <start/>
           <end/>
           <hf_id/>
-          <hfw_name/>
-          <doq/>
+          <hf_fw_id/>
+          <visit_date/>
           <study/>
           <gender/>
           <locality/>
@@ -38,8 +38,8 @@
       <bind jr:preload="timestamp" jr:preloadParams="start" nodeset="/COST_PCD/start" type="dateTime"/>
       <bind jr:preload="timestamp" jr:preloadParams="end" nodeset="/COST_PCD/end" type="dateTime"/>
       <bind constraint="regex(., '^[0-9][0-9][0-9][0-9]$')" jr:constraintMsg="Apenas 4 digitos" nodeset="/COST_PCD/hf_id" required="true()" type="string"/>
-      <bind constraint="regex(., '^[0-9][0-9][0-9][0-9]$')" jr:constraintMsg="Apenas 4 digitos" nodeset="/COST_PCD/hfw_name" required="true()" type="string"/>
-      <bind constraint=".&lt;=today()" nodeset="/COST_PCD/doq" required="true()" type="date"/>
+      <bind constraint="regex(., '^[0-9][0-9][0-9][0-9]$')" jr:constraintMsg="Apenas 4 digitos" nodeset="/COST_PCD/hf_fw_id" required="true()" type="string"/>
+      <bind constraint=".&lt;=today()" nodeset="/COST_PCD/visit_date" required="true()" type="date"/>
       <bind nodeset="/COST_PCD/study" required="true()" type="string"/>
       <bind nodeset="/COST_PCD/gender" required="true()" type="select1"/>
       <bind nodeset="/COST_PCD/locality" required="true()" type="string"/>
@@ -63,14 +63,14 @@
   </h:head>
   <h:body>
     <input ref="/COST_PCD/hf_id">
-      <label>Código do Inquiridor</label>
+      <label>Código do Centro de Saúde</label>
       <hint>formato XXXX</hint>
     </input>
-    <input ref="/COST_PCD/hfw_name">
-      <label>Nome do Inquiridor</label>
+    <input ref="/COST_PCD/hf_fw_id">
+      <label>Código do trabalhador sanitário</label>
       <hint>formato XXXX</hint>
     </input>
-    <input ref="/COST_PCD/doq">
+    <input ref="/COST_PCD/visit_date">
       <label>Data</label>
     </input>
     <input ref="/COST_PCD/study">
